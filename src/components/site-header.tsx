@@ -16,7 +16,7 @@ export function SiteHeader() {
       <div className="container-x mx-auto max-w-7xl flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center group">
           <img
-            src="/src/assets/lumo-logo-transparent.png"
+            src="/assets/lumo-logo-transparent.png"
             alt="LUMO"
             className="h-8 md:h-10 w-auto object-contain block translate-y-[8px]"
             style={{ aspectRatio: "auto" }}
