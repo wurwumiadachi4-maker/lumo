@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroKitchen from "@/assets/kitchenos.png";
-import bedroom from "@/assets/bedroom.jpg";
-import office from "@/assets/office.jpg";
-import living from "@/assets/living.jpg";
+import bedroom from "@/assets/bedroomes.png";
+import office from "@/assets/offices.png";
+import living from "@/assets/livinges.png";
 import material from "@/assets/material.jpg";
 import { ArrowUpRight, Ruler, Hammer, Leaf, ShieldCheck } from "lucide-react";
 
