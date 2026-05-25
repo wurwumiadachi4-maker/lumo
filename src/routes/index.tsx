@@ -17,10 +17,10 @@ export const Route = createFileRoute("/")({
 });
 
 const collections = [
-  { title: "სამზარეულო", img: heroKitchen, to: "/collections", desc: "გააზრებული შენახვა, ინტეგრირებული სახელურები, გამძლე საფარი." },
-  { title: "საძინებელი", img: bedroom, to: "/collections", desc: "კარადები, სათავეები და ჩაშენებული ავეჯი — შენი კედლის ზომით." },
-  { title: "კაბინეტი", img: office, to: "/collections", desc: "მაგიდები, თაროები და მშვიდი გარემო კონცენტრირებული მუშაობისთვის." },
-  { title: "სალონი", img: living, to: "/collections", desc: "მედია ბლოკები და მოდულური თაროები გულწრფელი მასალებით." },
+ { title: "სამზარეულო", img: heroKitchen, to: "/collections", desc: "" },
+{ title: "საძინებელი", img: bedroom, to: "/collections", desc: "" },
+{ title: "ოფისი", img: office, to: "/collections", desc: "" },
+{ title: "მისაღები ოთახი", img: living, to: "/collections", desc: "" },
 ];
 
 const values = [
@@ -170,13 +170,13 @@ function Index() {
       {/* PROCESS */}
       <section className="container-x mx-auto max-w-7xl py-24 md:py-32">
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">პროცესი</p>
-        <h2 className="text-4xl md:text-5xl max-w-3xl">გაზომვიდან მზა ოთახამდე — ოთხ ეტაპად.</h2>
+        <h2 className="text-4xl md:text-5xl max-w-3xl">როგორ ვმუშაობთ</h2>
         <div className="mt-16 grid md:grid-cols-4 gap-10 md:gap-6">
           {[
-            ["01", "დავალება", "ვხვდებით, ვუსმენთ, ვზომავთ. შენ გვიყვები, როგორ გამოიყენება ოთახი სინამდვილეში."],
-            ["02", "დიზაინი", "ნახაზები, მასალები, საფარი. ვიმეორებთ სანამ ყველა მილიმეტრი სწორი არ იქნება."],
-            ["03", "სახელოსნო", "შენი ნაჭერი იჭრება, კიდეები ეკვრება და წინასწარ აიწყობა ჩვენს სახელოსნოში."],
-            ["04", "მონტაჟი", "ჩვენი გუნდი მიჰყავს და ამონტაჟებს. შენ იღებ მზა ოთახს — არა ბრტყელ ყუთს."],
+            ["01", "კონსულტაცია და გაზომვა", "ვიგებთ თქვენს სურვილებს, ვათვალიერებთ სივრცეს და ზუსტად ვზომავთ ყველა დეტალს, რათა ავეჯი იდეალურად მოერგოს ინტერიერს."],
+["02", "დიზაინის შექმნა", "ვქმნით დიზაინს თქვენი სივრცისა და სტილის მიხედვით — ვარჩევთ მასალებს, ფერებსა და ყველა მნიშვნელოვან დეტალს."],
+["03", "ავეჯის დამზადება", "ავეჯი მზადდება ხარისხიანი მასალებითა და დეტალებზე მაქსიმალური ყურადღებით, რადგან ავეჯი გამოვიდეს გამძლე და პრაქტიკული ყოველდღიური გამოყენებისთვის."],
+["04", "მონტაჟი", "ჩვენი გუნდი საბოლოოდ ააწყობს ავეჯს თქვენ სახლში."],
           ].map(([n, t, d]) => (
             <div key={n} className="border-t border-foreground/15 pt-6">
               <div className="text-xs tracking-[0.2em] text-accent">{n}</div>
@@ -192,10 +192,10 @@ function Index() {
         <div className="rounded-2xl bg-primary text-primary-foreground p-10 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl max-w-xl text-primary-foreground">
-              გაქვს ოთახი გონებაში?
+              გეგმავთ რამე ახალს?
             </h2>
             <p className="mt-4 max-w-md text-primary-foreground/70">
-              მოგვიყევი ცოტა შენი სივრცის შესახებ. ჩვენ დავუბრუნდებით საუბარს — არა გაყიდვის სიტყვებს.
+              მოგვწერეთ ან დაგვიკავშირდით — სიამოვნებით დაგეხმარებით თქვენთვის სასურველი ინტერიერის შექმნაში.
             </p>
           </div>
           <Link

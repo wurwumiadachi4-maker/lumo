@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroKitchen from "@/assets/hero-kitchen.jpg";
-import bedroom from "@/assets/bedroom.jpg";
-import office from "@/assets/office.jpg";
-import living from "@/assets/living.jpg";
+import heroKitchen from "@/assets/kitchenos.png";
+import bedroom from "@/assets/bedroomes.png";
+import office from "@/assets/offices.png";
+import living from "@/assets/livinges.png";
 import material from "@/assets/material.jpg";
+import kidsRoom from "@/assets/roomos.png";
 
 export const Route = createFileRoute("/collections")({
   component: Collections,
@@ -56,6 +57,15 @@ const items = [
     specs: ["Egger & Kronospan ლამინატები", "ნამდვილი ხის ვინირი", "თითის ნაკვალევს მდგრადი მატი"],
   },
   // ახალი კატეგორიები ↓
+
+  {
+  title: "საბავშვო ოთახი",
+  tag: "საბავშვო",
+  img: kidsRoom,
+  desc: "ფუნქციური და შთამაგონებელი სივრცე ბავშვისთვის — მაგიდები, თაროები და შენახვის სისტემები, რომლებიც იზრდება ბავშვთან ერთად.",
+  specs: ["მორგებული სამუშაო კუთხე", "კედლის თაროების სისტემა", "გამძლე და უსაფრთხო მასალები"],
+ },
+
   {
     title: "კარადები",
     tag: "კარადა",
@@ -86,13 +96,10 @@ function Collections() {
     <div>
       <section className="container-x mx-auto max-w-7xl pt-16 md:pt-24 pb-12">
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4">კოლექციები</p>
-        <h1 className="text-5xl md:text-6xl max-w-3xl">
-          შექმნილია სამზარეულოებისთვის, საძინებლებისთვის, კაბინეტებისა და სალონებისთვის.
+        <h1 className="text-3xl md:text-4xl max-w-3xl">
+         ვამზადებთ — სამზარეულოებს, საძინებლებს, კარადებს, TV კედლებსა და სხვადასხვა ტიპის ინტერიერის ავეჯს.
         </h1>
         <p className="mt-6 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-          LUMO-ს თითოეული ნაჭერი იხატება ერთი კონკრეტული ოთახისთვის.
-          ეს არის ოთახები, რომლებიც ყველაზე კარგად ვიცით — მასალები
-          და დეტალები, რომლებს ვენდობით.
         </p>
       </section>
 
