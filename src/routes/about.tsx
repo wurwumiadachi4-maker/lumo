@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import craft from "@/assets/craft.jpg";
+import craft from "@/assets/finalese.png";
 import material from "@/assets/material.jpg";
 import { ArrowRight } from "lucide-react";
 
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "ჩვენ შესახებ — LUMO, თბილისი" },
-      { name: "description", content: "LUMO — ავეჯის დამზადება შეკვეთით. თანამედროვე და ხარისხიანი ავეჯი ინდივიდუალური ზომებისა და დიზაინის მიხედვით." },
+      { name: "description", content: "LUMO — ავეჯის დამზადება შეკვეთით." },
     ],
   }),
 });
@@ -18,36 +18,29 @@ function About() {
     <div>
 
       {/* HERO */}
-      <section className="container-x mx-auto max-w-7xl pt-16 md:pt-24 pb-20">
+      <section className="container-x mx-auto max-w-7xl pt-8 md:pt-12 pb-12">
         <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">ჩვენ შესახებ</p>
-        <div className="grid md:grid-cols-12 gap-8 items-end">
-          <h1 className="md:col-span-7 text-5xl md:text-6xl leading-[1.05]">
-            LUMO — ავეჯის დამზადება შეკვეთით.
+        <div className="grid md:grid-cols-12 gap-8 items-start">
+          <h1 className="md:col-span-7 text-3xl md:text-4xl leading-[1.05]">
+            LUMO — ავეჯი შენი სივრცისთვის
           </h1>
           <p className="md:col-span-5 text-muted-foreground leading-relaxed md:pb-2">
-            გთავაზობთ თანამედროვე და ხარისხიანი ავეჯის დამზადებას
-            ინდივიდუალური ზომებისა და დიზაინის მიხედვით. ჩვენი მიზანია,
-            თითოეული პროექტი მაქსიმალურად მოვარგოთ თქვენს სივრცეს.
+            სამზარეულოები, კარადები და სხვადასხვა ტიპის ინტერიერის ავეჯი — პრაქტიკული, თანამედროვე დიზაინით და ხარისხიანი მასალებით.
           </p>
         </div>
       </section>
 
       {/* FULL IMAGE */}
       <section className="container-x mx-auto max-w-7xl pb-24">
-        <div className="relative aspect-[16/8] rounded-2xl overflow-hidden">
+        <div className="relative aspect-[16/9] rounded-2xl overflow-hidden">
           <img
             src={craft}
-            alt="LUMO-ს სახელოსნო"
+            alt="LUMO"
             loading="lazy"
             width={1280}
             height={960}
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          <div className="absolute bottom-8 left-8 text-white">
-            <p className="text-xs uppercase tracking-[0.25em] opacity-70 mb-1">LUMO სახელოსნო</p>
-            <p className="text-lg font-light">თბილისი, საქართველო</p>
-          </div>
         </div>
       </section>
 
@@ -83,19 +76,9 @@ function About() {
             </Link>
           </div>
           <div className="space-y-5 text-muted-foreground leading-relaxed">
-            <p>
-              LUMO-ს გუნდი უკვე წლებია ქმნის სამზარეულოს, საძინებლის,
-              კარადებისა და სხვადასხვა ტიპის ავეჯს, რომელიც აერთიანებს
-              პრაქტიკულობას, გამძლეობასა და თანამედროვე დიზაინს.
-            </p>
-            <p>
-              ვიყენებთ ხარისხიან მასალებს, თანამედროვე ტექნოლოგიებსა და
-              სუფთა დამუშავების მეთოდებს — დიზაინიდან საბოლოო მონტაჟამდე.
-            </p>
-            <p>
-              შეკვეთებს ვიღებთ მთელი საქართველოს მასშტაბით. ყოველი
-              პროექტი შესრულდება შეთანხმებულ დროში და მაღალი ხარისხით.
-            </p>
+            <p>LUMO-ს გუნდი უკვე წლებია ქმნის სამზარეულოს, საძინებლის, კარადებისა და სხვადასხვა ტიპის ავეჯს, რომელიც აერთიანებს პრაქტიკულობას, გამძლეობასა და თანამედროვე დიზაინს.</p>
+            <p>ვიყენებთ ხარისხიან მასალებს, თანამედროვე ტექნოლოგიებსა და სუფთა დამუშავების მეთოდებს.</p>
+            <p>შეკვეთებს ვიღებთ მთელი საქართველოს მასშტაბით. ყოველი პროექტი შესრულდება შეთანხმებულ დროში და მაღალი ხარისხით.</p>
           </div>
         </div>
       </section>
@@ -104,10 +87,10 @@ function About() {
       <section className="container-x mx-auto max-w-7xl pb-24 md:pb-32">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden">
           {[
-            ["ფუნქციურობა", "შენახვა, სივრცე და ერგონომიკა — ნებისმიერ ვიზუალურ გადაწყვეტამდე."],
-            ["გამძლეობა", "ვირჩევთ მასალებს, რომლებიც კარგად ბერდებიან. 15 წლის შემდეგაც სწორად უნდა იგრძნობოდეს."],
-            ["სიმარტივე", "მშვიდი პროპორციები, მცირე პალიტრა. სილამაზე გამოკლებით მოდის."],
-            ["ხელმისაწვდომობა", "ელეგანტური ინტერიერი ყველასთვის. პრემიუმ ხარისხი — სამართლიანი ფასით."],
+            ["ფუნქციურობა", "ავეჯი უნდა იყოს მოსახერხებელი ყოველდღიურობაში და კარგად მოერგოს სივრცეს."],
+            ["გამძლეობა", "ვიყენებთ ხარისხიან მასალებს და მექანიზმებს, რომლებიც წლების შემდეგაც კომფორტულად და საიმედოდ მუშაობს."],
+            ["თანამედროვე სტილი", "თანამედროვე დიზაინი, რომელიც სივრცეს უფრო დახვეწილს, მყუდროს და კომფორტულს ხდის."],
+            ["ხელმისაწვდომობა", "ჩვენი მიზანია ელეგანტური ინტერიერი ყველასთვის ხელმისაწვდომი გავხადოთ."],
           ].map(([t, d]) => (
             <div key={t} className="bg-background p-8 md:p-10">
               <h3 className="text-lg font-light mb-3">{t}</h3>
@@ -123,7 +106,7 @@ function About() {
           <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
             <img
               src={material}
-              alt="მასალის ნიმუშები — LUMO"
+              alt="მასალები"
               loading="lazy"
               width={1280}
               height={800}
@@ -138,9 +121,7 @@ function About() {
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              ევროპული სტანდარტის MDF, ლამინირებული პანელები (Egger, Kronospan),
-              ნამდვილი მუხისა და კაკლის ვინირი, ქვისა და კომპაქტური ლამინატის
-              სამუშაო ზედაპირები. ყველა არმატურა Blum ან Hettich-ია.
+              ევროპული სტანდარტის MDF, ლამინირებული პანელები (Egger, Kronospan), ნამდვილი მუხისა და კაკლის ვინირი. ყველა არმატურა Blum ან Hettich-ია.
             </p>
             <div className="flex flex-wrap gap-2">
               {["MDF", "ლამინატი", "Egger", "Kronospan", "Blum", "Hettich", "მუხის ვინირი"].map((tag) => (

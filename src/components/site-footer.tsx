@@ -9,8 +9,7 @@ export function SiteFooter() {
             LUMO<span className="text-accent">.</span>
           </div>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
-            სახელობო ავეჯი თბილისიდან, საქართველო. შექმნილია სწორედ შენი
-            ცხოვრების წესისთვის — გათვლილი ათწლეულებზე.
+            ვამზადებთ თანამედროვე ავეჯს — სამზარეულოებს, საძინებლებსა და სხვადასხვა ინტერიერის ავეჯს.
           </p>
         </div>
         <div>
@@ -22,19 +21,18 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">მოგვიდით</div>
+          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">კონტაქტი</div>
           <ul className="space-y-2 text-sm text-foreground/80">
-            <li>ჭავჭავაძის გამზ. 14</li>
-            <li>თბილისი, საქართველო</li>
             <li>+995 555 12 34 56</li>
             <li>hello@lumo.ge</li>
+            <li><a href="https://facebook.com" className="hover:text-accent">Facebook</a></li>
+            <li><a href="https://m.me" className="hover:text-accent">Messenger</a></li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border/60">
         <div className="container-x mx-auto max-w-7xl py-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} LUMO Furniture. ყველა უფლება დაცულია.</p>
-          <p>დამზადებულია თბილისში · მიეწოდება მთელ მსოფლიოში</p>
+          <p>© 2026 LUMO ყველა უფლება დაცულია.</p>
         </div>
       </div>
     </footer>
