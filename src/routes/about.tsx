@@ -121,10 +121,10 @@ function About() {
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              ევროპული სტანდარტის MDF, ლამინირებული პანელები (Egger, Kronospan), ნამდვილი მუხისა და კაკლის ვინირი. ყველა არმატურა Blum ან Hettich-ია.
+              ვიყენებთ ხარისხიან MDF-ს, ლამინატებს და მექანიზმებს, რომლებიც გამძლეობით და პრაქტიკულობით გამოირჩევა. ვმუშაობთ ისეთ ბრენდებთან, როგორიცაა (Egger, Kronospan, Blum, Hettich),
             </p>
             <div className="flex flex-wrap gap-2">
-              {["MDF", "ლამინატი", "Egger", "Kronospan", "Blum", "Hettich", "მუხის ვინირი"].map((tag) => (
+              {["MDF", "ლამინატი", "Egger", "Kronospan", "Blum", "Hettich",].map((tag) => (
                 <span key={tag} className="text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground">
                   {tag}
                 </span>

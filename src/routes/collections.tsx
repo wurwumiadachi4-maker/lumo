@@ -107,7 +107,6 @@ function Collections() {
                 to="/contact"
                 className="mt-8 inline-flex text-sm border-b border-foreground/40 pb-1 hover:border-accent hover:text-accent transition"
               >
-                ამ კოლექციის განხილვა →
               </Link>
             </div>
           </article>

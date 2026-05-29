@@ -46,7 +46,7 @@ function Contact() {
         მოვისაუბროთ შენს სივრცეზე.
       </h1>
       <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-lg">
-        აირჩიე შენთვის მოსახერხებელი გზა — ვუპასუხებთ სწრაფად.
+        მოგვწერე ან დაგვირეკე — სიამოვნებით დაგეხმარებით
       </p>
 
       <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

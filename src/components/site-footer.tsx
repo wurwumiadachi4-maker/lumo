@@ -5,9 +5,11 @@ export function SiteFooter() {
     <footer className="mt-32 border-t border-border/60 bg-secondary/40">
       <div className="container-x mx-auto max-w-7xl py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="font-display text-2xl">
-            LUMO<span className="text-accent">.</span>
-          </div>
+          <img
+            src="/lumo-logo-transparent.png"
+            alt="LUMO"
+            className="h-8 w-auto"
+          />
           <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
             ვამზადებთ თანამედროვე ავეჯს — სამზარეულოებს, საძინებლებსა და სხვადასხვა ინტერიერის ავეჯს.
           </p>
