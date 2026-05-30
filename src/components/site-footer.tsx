@@ -25,10 +25,10 @@ export function SiteFooter() {
         <div>
           <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">კონტაქტი</div>
           <ul className="space-y-2 text-sm text-foreground/80">
-            <li>+995 555 12 34 56</li>
+            <li>+995 555 02 55 88</li>
             <li>hello@lumo.ge</li>
-            <li><a href="https://facebook.com" className="hover:text-accent">Facebook</a></li>
-            <li><a href="https://m.me" className="hover:text-accent">Messenger</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61584012764345" className="hover:text-accent">Facebook</a></li>
+            <li><a href="https://m.me/61584012764345" className="hover:text-accent">Messenger</a></li>
           </ul>
         </div>
       </div>

@@ -15,8 +15,8 @@ const contacts = [
   {
     icon: Phone,
     label: "დაგვირეკე",
-    value: "+995 555 12 34 56",
-    href: "tel:+995555123456",
+    value: "+995 555 02 55 88",
+    href: "tel:+995 555 02 55 88",
   },
   {
     icon: Mail,
@@ -27,14 +27,14 @@ const contacts = [
   {
     icon: Facebook,
     label: "Facebook",
-    value: "facebook.com/lumoge",
-    href: "https://facebook.com/lumoge",
+    value: "LUMO Facebook",
+    href: "https://www.facebook.com/profile.php?id=61584012764345",
   },
   {
     icon: MessageCircle,
     label: "Messenger",
-    value: "m.me/lumoge",
-    href: "https://m.me/lumoge",
+    value: "LUMO Messenger",
+    href: "https://m.me/61584012764345",
   },
 ];
 

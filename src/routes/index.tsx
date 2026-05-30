@@ -35,12 +35,9 @@ function Index() {
     <div>
       {/* HERO */}
       <section className="relative">
-        <div className="container-x mx-auto max-w-7xl pt-12 md:pt-20 pb-10 md:pb-16">
-          <div className="grid lg:grid-cols-12 gap-10 items-end">
+        <div className="container-x mx-auto max-w-7xl pt-6 md:pt-10 pb-10 md:pb-16">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 fade-up">
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
-                სახელობო ავეჯი · თბილისი, საქართველო
-              </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-foreground">
                 ავეჯი, რომელიც თქვენს სივრცეს იდეალურად მოერგება
               </h1>
