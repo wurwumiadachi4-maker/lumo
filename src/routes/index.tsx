@@ -17,10 +17,10 @@ export const Route = createFileRoute("/")({
 });
 
 const collections = [
- { title: "სამზარეულო", img: heroKitchen, to: "/collections", desc: "" },
-{ title: "საძინებელი", img: bedroom, to: "/collections", desc: "" },
-{ title: "ოფისი", img: office, to: "/collections", desc: "" },
-{ title: "მისაღები ოთახი", img: living, to: "/collections", desc: "" },
+  { title: "სამზარეულო", img: heroKitchen, to: "/collections", desc: "" },
+  { title: "საძინებელი", img: bedroom, to: "/collections", desc: "" },
+  { title: "ოფისი", img: office, to: "/collections", desc: "" },
+  { title: "მისაღები ოთახი", img: living, to: "/collections", desc: "" },
 ];
 
 const values = [
@@ -35,14 +35,53 @@ function Index() {
     <div>
       {/* HERO */}
       <section className="relative">
-        <div className="container-x mx-auto max-w-7xl pt-6 md:pt-10 pb-10 md:pb-16">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 fade-up">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-foreground">
+
+        {/* MOBILE: Full-bleed image with text overlay */}
+        <div className="lg:hidden relative h-[90vh] min-h-[600px] flex flex-col justify-end overflow-hidden">
+          <img
+            src={heroKitchen}
+            alt="სახელობო მუხის სამზარეულო"
+            width={1920}
+            height={1280}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+          <div className="relative z-10 container-x mx-auto max-w-7xl pb-12">
+            <p className="text-xs uppercase tracking-[0.25em] text-white/60 mb-4">
+              სახელობო ავეჯი · თბილისი, საქართველო
+            </p>
+            <h1 className="text-4xl sm:text-5xl leading-[1.05] text-white max-w-2xl">
+              ავეჯი, რომელიც თქვენს სივრცეს იდეალურად მოერგება
+            </h1>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/collections"
+                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm hover:opacity-90 transition"
+              >
+                კოლექციების ნახვა <ArrowUpRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 border border-white/40 text-white px-6 py-3 rounded-full text-sm hover:bg-white/10 transition"
+              >
+                დაგვიკავშირდი
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* DESKTOP: 2-column layout */}
+        <div className="hidden lg:block container-x mx-auto max-w-7xl pt-20 pb-16">
+          <div className="grid lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-6">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
+                სახელობო ავეჯი · თბილისი, საქართველო
+              </p>
+              <h1 className="text-5xl lg:text-6xl leading-[1.05] text-foreground">
                 ავეჯი, რომელიც თქვენს სივრცეს იდეალურად მოერგება
               </h1>
               <p className="mt-6 max-w-md text-sm text-muted-foreground leading-relaxed">
-                LUMO გთავაზობთ ავეჯის დამზადებას ინდივიდუალური დიზაინით — პრემიუმ ხარისხით და თქვენზე მორგებული სტილით. ჩვენი მიზანია ელეგანტური ინტერიერი ყველასთვის ხელმისაწვდომი გავხადოთ.
+                LUMO გთავაზობთ ავეჯის დამზადებას ინდივიდუალური დიზაინით — პრემიუმ ხარისხით და თქვენზე მორგებული სტილით.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -59,8 +98,8 @@ function Index() {
                 </Link>
               </div>
             </div>
-            <div className="lg:col-span-6 fade-up">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] lg:aspect-[5/6]">
+            <div className="lg:col-span-6">
+              <div className="relative rounded-2xl overflow-hidden aspect-[5/6]">
                 <img
                   src={heroKitchen}
                   alt="სახელობო მუხის სამზარეულო"
@@ -73,23 +112,24 @@ function Index() {
           </div>
         </div>
 
-        {/* Stat strip */}
-        <div className="border-y border-border/60 bg-secondary/40">
-          <div className="container-x mx-auto max-w-7xl py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
-            {[
-              ["12+", "წელი გამოცდილება"],
-              ["840", "დასრულებული პროექტი"],
-              ["10 წ.", "გარანტია ყველა ნაწარმზე"],
-              ["100%", "სრულად ინდივიდუალური"],
-            ].map(([n, l]) => (
-              <div key={l}>
-                <div className="font-display text-3xl md:text-4xl text-foreground">{n}</div>
-                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mt-1">{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
+
+      {/* Stat strip */}
+      <div className="border-y border-border/60 bg-secondary/40">
+        <div className="container-x mx-auto max-w-7xl py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+          {[
+            ["12+", "წელი გამოცდილება"],
+            ["840", "დასრულებული პროექტი"],
+            ["10 წ.", "გარანტია ყველა ნაწარმზე"],
+            ["100%", "სრულად ინდივიდუალური"],
+          ].map(([n, l]) => (
+            <div key={l}>
+              <div className="font-display text-3xl md:text-4xl text-foreground">{n}</div>
+              <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mt-1">{l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* COLLECTIONS */}
       <section className="container-x mx-auto max-w-7xl py-24 md:py-32">
@@ -147,7 +187,7 @@ function Index() {
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
               ვიყენებთ ხარისხიან და გამძლე მასალებს, რომლებიც ყოველდღიურ
-              მოხმარებას მარტივად უძლებს. 
+              მოხმარებას მარტივად უძლებს.
             </p>
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
               {values.map((v) => (
@@ -170,10 +210,10 @@ function Index() {
         <h2 className="text-4xl md:text-5xl max-w-3xl">როგორ ვმუშაობთ</h2>
         <div className="mt-16 grid md:grid-cols-4 gap-10 md:gap-6">
           {[
-            ["01", "კონსულტაცია და გაზომვა", "ვიგებთ თქვენს სურვილებს, ვათვალიერებთ სივრცეს და ზუსტად ვზომავთ ყველა დეტალს, რათა ავეჯი იდეალურად მოერგოს ინტერიერს."],
-["02", "დიზაინის შექმნა", "ვქმნით დიზაინს თქვენი სივრცისა და სტილის მიხედვით — ვარჩევთ მასალებს, ფერებსა და ყველა მნიშვნელოვან დეტალს."],
-["03", "ავეჯის დამზადება", "ავეჯი მზადდება ხარისხიანი მასალებითა და დეტალებზე მაქსიმალური ყურადღებით, რადგან ავეჯი გამოვიდეს გამძლე და პრაქტიკული ყოველდღიური გამოყენებისთვის."],
-["04", "მონტაჟი", "ჩვენი გუნდი საბოლოოდ ააწყობს ავეჯს თქვენ სახლში."],
+            ["01", "კონსულტაცია და გაზომვა", "ვიგებთ თქვენს სურვილებს, ვათვალიერებთ სივრცეს და ზუსტად ვზომავთ ყველა დეტალს."],
+            ["02", "დიზაინის შექმნა", "ვქმნით დიზაინს თქვენი სივრცისა და სტილის მიხედვით — ვარჩევთ მასალებს, ფერებსა და ყველა დეტალს."],
+            ["03", "ავეჯის დამზადება", "ავეჯი მზადდება ხარისხიანი მასალებითა და დეტალებზე მაქსიმალური ყურადღებით."],
+            ["04", "მონტაჟი", "ჩვენი გუნდი საბოლოოდ ააწყობს ავეჯს თქვენ სახლში."],
           ].map(([n, t, d]) => (
             <div key={n} className="border-t border-foreground/15 pt-6">
               <div className="text-xs tracking-[0.2em] text-accent">{n}</div>
@@ -192,7 +232,7 @@ function Index() {
               გეგმავთ რამე ახალს?
             </h2>
             <p className="mt-4 max-w-md text-primary-foreground/70">
-              მოგვწერეთ ან დაგვიკავშირდით — სიამოვნებით დაგეხმარებით თქვენთვის სასურველი ინტერიერის შექმნაში.
+              მოგვწერეთ ან დაგვიკავშირდით — სიამოვნებით დაგეხმარებით.
             </p>
           </div>
           <Link
