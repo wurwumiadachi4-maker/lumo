@@ -47,9 +47,6 @@ function Index() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
           <div className="relative z-10 container-x mx-auto max-w-7xl pb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-white/60 mb-4">
-              სახელობო ავეჯი · თბილისი, საქართველო
-            </p>
             <h1 className="text-4xl sm:text-5xl leading-[1.05] text-white max-w-2xl">
               ავეჯი, რომელიც თქვენს სივრცეს იდეალურად მოერგება
             </h1>
