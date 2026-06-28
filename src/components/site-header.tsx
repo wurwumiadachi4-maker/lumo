@@ -34,8 +34,7 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <a
-            href="tel:+995555123456"
+          <a href="tel:+995555025588"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm hover:opacity-90 transition"
           >
             <Phone className="h-3.5 w-3.5" />
@@ -63,8 +62,7 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
-            <a
-              href="tel:+995555123456"
+            <a href="tel:+995555025588"
               className="mt-2 inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full text-sm w-fit"
             >
               <Phone className="h-3.5 w-3.5" />
