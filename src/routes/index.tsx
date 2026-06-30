@@ -52,10 +52,10 @@ function Index() {
     </h1>
     <div className="mt-8 flex flex-wrap gap-3">
       <Link
-        to="/collections"
-        className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm hover:opacity-90 transition"
-      >
-        კოლექციების ნახვა <ArrowUpRight className="h-4 w-4" />
+        to="/start"
+         className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm hover:opacity-90 transition"
+         >
+        პროექტის დაწყება <ArrowUpRight className="h-4 w-4" />
       </Link>
       <Link
         to="/contact"
@@ -79,10 +79,10 @@ function Index() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  to="/collections"
+                  to="/start"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm hover:opacity-90 transition"
-                >
-                  კოლექციების ნახვა <ArrowUpRight className="h-4 w-4" />
+                   >
+                  პროექტის დაწყება <ArrowUpRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/contact"
@@ -230,7 +230,7 @@ function Index() {
             </p>
           </div>
           <Link
-            to="/contact"
+            to="/start"
             className="inline-flex items-center gap-2 bg-background text-foreground px-6 py-3 rounded-full text-sm hover:bg-accent hover:text-accent-foreground transition self-start md:self-end"
           >
             პროექტის დაწყება <ArrowUpRight className="h-4 w-4" />

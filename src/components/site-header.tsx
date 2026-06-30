@@ -6,6 +6,7 @@ const nav = [
   { to: "/", label: "მთავარი" },
   { to: "/collections", label: "კოლექციები" },
   { to: "/about", label: "ჩვენ შესახებ" },
+  { to: "/faq", label: "კითხვები" },
   { to: "/contact", label: "კონტაქტი" },
 ] as const;
 

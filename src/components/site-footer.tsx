@@ -1,6 +1,9 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 
 export function SiteFooter() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const hideMessengerButton = pathname === "/start";
+
   return (
     <>
       <footer className="mt-32 border-t border-border/60 bg-secondary/40">
@@ -41,24 +44,26 @@ export function SiteFooter() {
         </div>
       </footer>
 
-      {/* Messenger Floating Button */}
-      <a
-        href="https://m.me/61584012764345"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-primary hover:opacity-90 text-primary-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
-        aria-label="Messenger-ში მოგვწერეთ"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="h-5 w-5"
+      {/* Messenger Floating Button — hidden on /start funnel */}
+      {!hideMessengerButton && (
+        <a
+          href="https://m.me/61584012764345"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-primary hover:opacity-90 text-primary-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+          aria-label="Messenger-ში მოგვწერეთ"
         >
-          <path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.883 1.346 5.457 3.465 7.17v3.571l3.33-1.836C9.77 20.38 10.868 20.52 12 20.52c5.523 0 10-4.145 10-9.261C22 6.145 17.523 2 12 2zm1.008 12.457l-2.548-2.718-4.976 2.718 5.474-5.814 2.61 2.718 4.914-2.718-5.474 5.814z"/>
-        </svg>
-        <span className="text-sm font-medium">მოგვწერეთ</span>
-      </a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-5 w-5"
+          >
+            <path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.883 1.346 5.457 3.465 7.17v3.571l3.33-1.836C9.77 20.38 10.868 20.52 12 20.52c5.523 0 10-4.145 10-9.261C22 6.145 17.523 2 12 2zm1.008 12.457l-2.548-2.718-4.976 2.718 5.474-5.814 2.61 2.718 4.914-2.718-5.474 5.814z"/>
+          </svg>
+          <span className="text-sm font-medium">მოგვწერეთ</span>
+        </a>
+      )}
     </>
   );
 }
