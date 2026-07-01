@@ -148,8 +148,19 @@ function StartFunnel() {
     }
   })();
 
-  const next = () => setStep((s) => Math.min(s + 1, totalSteps));
-  const back = () => setStep((s) => Math.max(s - 1, 0));
+  const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const next = () => {
+  setStep((s) => Math.min(s + 1, totalSteps));
+  scrollToTop();
+  };
+
+  const back = () => {
+  setStep((s) => Math.max(s - 1, 0));
+  scrollToTop();
+  };
 
   /* ---------- Build WhatsApp message ---------- */
   const buildMessage = () => {
