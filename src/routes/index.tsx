@@ -26,7 +26,7 @@ const collections = [
 const values = [
   { icon: Ruler, title: "ზუსტი შესრულება", text: "ყოველი პროექტი მზადდება დეტალებზე განსაკუთრებული ყურადღებით." },
   { icon: Leaf, title: "გამძლე მასალები", text: "MDF, ლამინირებული ზედაპირები, რომლებიც დიდხანს ინარჩუნებს იერსახეს." },
-  { icon: ShieldCheck, title: "12 წლიანი გამოცდილება", text: "ავეჯის დიზაინსა და წარმოებაში დაგროვილი გამოცდილება, რომელსაც თითოეულ პროექტში ვდებთ." },
+  { icon: ShieldCheck, title: "15 წლიანი გამოცდილება", text: "ავეჯის დიზაინსა და წარმოებაში დაგროვილი გამოცდილება, რომელსაც თითოეულ პროექტში ვდებთ." },
   { icon: Hammer, title: "თანამედროვე სტილი", text: "თანამედროვე დიზაინი, რომელიც სივრცეს უფრო დახვეწილს და კომფორტულს ხდის." },
 ];
 
@@ -112,9 +112,9 @@ function Index() {
       <div className="border-y border-border/60 bg-secondary/40">
         <div className="container-x mx-auto max-w-7xl py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
           {[
-            ["12+", "წელი გამოცდილება"],
+            ["15+", "წელი გამოცდილება"],
             ["840", "დასრულებული პროექტი"],
-            ["10 წ.", "გარანტია ყველა ნაწარმზე"],
+            ["5 წ.", "გარანტია ყველა ნაწარმზე"],
             ["100%", "სრულად ინდივიდუალური"],
           ].map(([n, l]) => (
             <div key={l}>
@@ -225,9 +225,6 @@ function Index() {
             <h2 className="text-4xl md:text-5xl max-w-xl text-primary-foreground">
               გეგმავთ რამე ახალს?
             </h2>
-            <p className="mt-4 max-w-md text-primary-foreground/70">
-              მოგვწერეთ ან დაგვიკავშირდით — სიამოვნებით დაგეხმარებით.
-            </p>
           </div>
           <Link
             to="/start"

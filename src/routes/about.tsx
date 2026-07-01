@@ -48,10 +48,10 @@ function About() {
       <section className="border-y border-border/40 bg-secondary/20">
         <div className="container-x mx-auto max-w-7xl py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            ["12+", "წელი გამოცდილება"],
+            ["15+", "წელი გამოცდილება"],
             ["840+", "დასრულებული პროექტი"],
             ["100%", "ინდივიდუალური მიდგომა"],
-            ["10 წ.", "გარანტია ნაწარმზე"],
+            ["5 წ.", "გარანტია ნაწარმზე"],
           ].map(([n, l]) => (
             <div key={l} className="text-center md:text-left">
               <div className="text-3xl md:text-4xl font-light text-foreground">{n}</div>
@@ -78,7 +78,7 @@ function About() {
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>15 წელზე მეტია ჩვენი გუნდი აწარმოებს ავეჯს — ათასობით სამზარეულო, კარადა და საძინებელი.</p>
             <p>ვიყენებთ ხარისხიან მასალებს, თანამედროვე ტექნოლოგიებსა და სუფთა დამუშავების მეთოდებს.</p>
-            <p>შეკვეთებს ვიღებთ მთელი საქართველოს მასშტაბით. ყოველი პროექტი შესრულდება შეთანხმებულ დროში და მაღალი ხარისხით.</p>
+            <p>ყოველი პროექტი შესრულდება შეთანხმებულ დროში და მაღალი ხარისხით.</p>
           </div>
         </div>
       </section>
@@ -139,14 +139,14 @@ function About() {
         <div className="rounded-2xl bg-primary text-primary-foreground p-10 md:p-14 flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
           <div>
             <h2 className="text-3xl md:text-4xl font-light text-primary-foreground max-w-lg">
-              თუ გსურთ ავეჯი, რომელიც თქვენს სივრცეს იდეალურად მოერგება — დაგვიკავშირდით.
+               გეგმავთ ახალ პროექტს? - მიიღეთ უფასო კონსულტაცია
             </h2>
           </div>
           <Link
-            to="/contact"
+            to="/start"
             className="flex-shrink-0 inline-flex items-center gap-2 bg-background text-foreground px-6 py-3 rounded-full text-sm hover:bg-accent hover:text-white transition"
           >
-            კონტაქტი <ArrowRight className="h-4 w-4" />
+            პროექტის დაწყება <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

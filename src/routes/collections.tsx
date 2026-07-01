@@ -80,7 +80,7 @@ function Collections() {
     {items.map((it) => (
       <Link
         key={it.title}
-        to="/contact"
+        to="/start"
         className="group block relative aspect-[4/5] overflow-hidden rounded-2xl"
       >
         <img
@@ -138,13 +138,13 @@ function Collections() {
         <div className="rounded-2xl bg-primary text-primary-foreground p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <h2 className="text-2xl md:text-3xl text-primary-foreground">გეგმავთ ახალ პროექტს?</h2>
-            <p className="mt-2 text-primary-foreground/70 text-sm">დაგვიკავშირდით — სიამოვნებით დაგეხმარებით.</p>
+            <p className="mt-2 text-primary-foreground/70 text-sm">სიამოვნებით დაგეხმარებით.</p>
           </div>
           <Link
-            to="/contact"
+            to="/start"
             className="inline-flex items-center gap-2 bg-background text-foreground px-6 py-3 rounded-full text-sm hover:opacity-90 transition whitespace-nowrap self-start md:self-center"
           >
-            დაგვიკავშირდი →
+            პროექტის დაწყება →
           </Link>
         </div>
       </section>

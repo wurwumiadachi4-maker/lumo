@@ -16,11 +16,18 @@ import {
   Sparkles,
 } from "lucide-react";
 
+//material1.jpg
+
 import kitchenImg from "@/assets/kitchenos.png";
 import bedroomImg from "@/assets/bedroomes.png";
 import officeImg from "@/assets/offices.png";
 import livingImg from "@/assets/livinges.png";
-import materialImg from "@/assets/material.jpg";
+import mat1Img from "@/assets/material1.jpg";
+import mat2Img from "@/assets/material2.jpg";
+import mat3Img from "@/assets/material3.png";
+import mat4Img from "@/assets/material.jpg";
+import wardrobeImg from "@/assets/Wardrobe.jpeg";
+import kidsImg from "@/assets/roomos.png";
 
 export const Route = createFileRoute("/start")({
   component: StartFunnel,
@@ -281,10 +288,10 @@ function StepFurniture({
   const options: { id: FurnitureType; label: string; img?: string; icon: any }[] = [
     { id: "kitchen", label: "სამზარეულო", img: kitchenImg, icon: ChefHat },
     { id: "bedroom", label: "საძინებელი", img: bedroomImg, icon: Bed },
-    { id: "wardrobe", label: "გარდერობი", icon: Shirt },
+    { id: "wardrobe", label: "გარდერობი", img: wardrobeImg, icon: Shirt },
     { id: "office", label: "საოფისე", img: officeImg, icon: Briefcase },
     { id: "living", label: "მისაღები", img: livingImg, icon: Sofa },
-    { id: "kids", label: "საბავშვო", icon: Baby },
+    { id: "kids", label: "საბავშვო", img: kidsImg, icon: Baby },
     { id: "other", label: "სხვა", icon: Sparkles },
   ];
 
@@ -308,7 +315,7 @@ function StepFurniture({
             <button
               key={opt.id}
               onClick={() => toggle(opt.id)}
-              className={`group relative overflow-hidden rounded-xl border-2 transition-all text-left ${
+              className={`group relative overflow-hidden rounded-xl border-2 transition-all text-left bg-white ${
                 selected
                   ? "border-accent ring-2 ring-accent/20"
                   : "border-border hover:border-foreground/30"
@@ -360,11 +367,36 @@ function StepStyle({
   value: Style | null;
   onChange: (v: Style) => void;
 }) {
-  const options: { id: Style; label: string; img?: string; desc: string }[] = [
-    { id: "modern-oak", label: "თანამედროვე მუხა", img: kitchenImg, desc: "ნათელი, ბუნებრივი ხის ფაქტურა" },
-    { id: "dark-espresso", label: "მუქი ესპრესო", img: livingImg, desc: "მუქი, ელეგანტური ტონები" },
-    { id: "classic-white", label: "კლასიკური თეთრი", img: bedroomImg, desc: "მინიმალისტური, სუფთა ხაზები" },
-    { id: "unsure", label: "არ ვიცი, თქვენ შემომთავაზეთ", img: materialImg, desc: "გავარჩევთ ერთად კონსულტაციაზე" },
+  const options: {
+    id: Style;
+    label: string;
+    desc: string;
+    img: string;
+  }[] = [
+    {
+      id: "modern-oak",
+      label: "თეთრი + Walnut",
+      desc: "კლასიკური კონტრასტი",
+      img: mat1Img,
+    },
+    {
+      id: "dark-espresso",
+      label: "თეთრი + Oak",
+      desc: "თბილი, ნათელი კომბინაცია",
+      img: mat2Img,
+    },
+    {
+      id: "classic-white",
+      label: "Sage + Oak",
+      desc: "ბუნებრივი, თანამედროვე სტილი",
+      img: mat3Img,
+    },
+    {
+      id: "unsure",
+      label: "არ ვიცი, შემომთავაზეთ",
+      desc: "გავარჩევთ ერთად კონსულტაციაზე",
+      img: mat4Img,
+    },
   ];
 
   return (
@@ -373,7 +405,7 @@ function StepStyle({
         რომელი სტილი მოგწონთ?
       </h2>
       <p className="text-sm text-muted-foreground mb-8">
-        აირჩიეთ ის სტილი, რომელიც თქვენს ინტერიერს ყველაზე უკეთ მოერგება
+        აირჩიეთ სასურველი მასალის კომბინაცია
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
         {options.map((opt) => {
@@ -382,28 +414,29 @@ function StepStyle({
             <button
               key={opt.id}
               onClick={() => onChange(opt.id)}
-              className={`group relative overflow-hidden rounded-xl border-2 transition-all text-left ${
-                selected
-                  ? "border-accent ring-2 ring-accent/20"
-                  : "border-border hover:border-foreground/30"
-              }`}
+           className={`group relative overflow-hidden rounded-xl border-2 transition-all text-left bg-white ${
+             selected
+             ? "border-accent ring-2 ring-accent/20"
+             : "border-border hover:border-foreground/30"
+            }`}
             >
-              <div className="relative aspect-[16/10] bg-muted">
+              <div className="relative aspect-[4/3]" style={{backgroundColor: '#FAF9F7'}}>
                 <img
                   src={opt.img}
                   alt={opt.label}
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 {selected && (
                   <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-accent flex items-center justify-center">
                     <Check className="h-4 w-4 text-accent-foreground" />
                   </div>
                 )}
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <div className="text-base md:text-lg font-medium">{opt.label}</div>
-                  <div className="text-xs md:text-sm text-white/80 mt-0.5">{opt.desc}</div>
+              </div>
+              <div className="p-4">
+                <div className="text-base font-medium">{opt.label}</div>
+                <div className="text-sm text-muted-foreground mt-0.5">
+                  {opt.desc}
                 </div>
               </div>
             </button>
