@@ -5,6 +5,8 @@ import office from "@/assets/offices.png";
 import living from "@/assets/livinges.png";
 import material from "@/assets/material.jpg";
 import kidsRoom from "@/assets/roomos.png";
+import kitchenAlt1 from "@/assets/finalese.png";
+import { WorkGallery, type WorkCategory } from "@/components/work-gallery";
 
 export const Route = createFileRoute("/collections")({
   component: Collections,
@@ -60,6 +62,32 @@ const items = [
     desc: "Egger, Kronospan, Blum — მხოლოდ ხარისხიანი და გამძლე მასალები.",
     descFull: "ვმუშაობთ ხარისხიან მასალებზე, რომლებიც ყოველდღიურ გამოყენებას კარგად უძლებს და ინტერიერს თანამედროვე იერს აძლევს.",
     specs: ["Egger და Kronospan ლამინატები", "MDF და ხის ტექსტურები"],
+  },
+];
+
+const workCategories: WorkCategory[] = [
+  {
+    title: "სამზარეულო",
+    images: [
+      { src: heroKitchen, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenAlt1, alt: "სამზარეულო — LUMO პროექტი" },
+    ],
+  },
+  {
+    title: "საძინებელი",
+    images: [{ src: bedroom, alt: "საძინებელი — LUMO პროექტი" }],
+  },
+  {
+    title: "საოფისე",
+    images: [{ src: office, alt: "საოფისე — LUMO პროექტი" }],
+  },
+  {
+    title: "მისაღები",
+    images: [{ src: living, alt: "მისაღები ოთახი — LUMO პროექტი" }],
+  },
+  {
+    title: "საბავშვო",
+    images: [{ src: kidsRoom, alt: "საბავშვო ოთახი — LUMO პროექტი" }],
   },
 ];
 
@@ -133,8 +161,16 @@ function Collections() {
         ))}
       </section>
 
+      {/* ჩვენი ნამუშევრები */}
+      <section className="container-x mx-auto max-w-7xl pb-24 md:pb-32">
+        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">გალერეა</p>
+        <h2 className="text-3xl md:text-4xl mb-10 md:mb-12">ჩვენი ნამუშევრები</h2>
+        <WorkGallery categories={workCategories} />
+      </section>
+
       {/* CTA */}
       <section className="container-x mx-auto max-w-7xl pb-8 md:pb-24">
+        
         <div className="rounded-2xl bg-primary text-primary-foreground p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <h2 className="text-2xl md:text-3xl text-primary-foreground">გეგმავთ ახალ პროექტს?</h2>
@@ -151,3 +187,4 @@ function Collections() {
     </div>
   );
 }
+

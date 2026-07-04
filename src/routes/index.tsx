@@ -58,10 +58,10 @@ function Index() {
         პროექტის დაწყება <ArrowUpRight className="h-4 w-4" />
       </Link>
       <Link
-        to="/contact"
-        className="inline-flex items-center gap-2 border border-white/40 text-white px-6 py-3 rounded-full text-sm hover:bg-white/10 transition"
+        to="/collections"
+        className="inline-flex items-center gap-2 text-white px-6 py-3 text-sm font-medium border-b-2 border-white/50 hover:border-white transition"
       >
-        დაგვიკავშირდი
+        კოლექციების ნახვა <ArrowUpRight className="h-4 w-4" />
       </Link>
     </div>
   </div>
@@ -85,10 +85,10 @@ function Index() {
                   პროექტის დაწყება <ArrowUpRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 border border-foreground/20 px-6 py-3 rounded-full text-sm hover:bg-foreground hover:text-background transition"
+                  to="/collections"
+                  className="inline-flex items-center gap-2 text-foreground px-6 py-3 text-sm font-medium border-b-2 border-foreground/30 hover:border-foreground transition"
                 >
-                  დაგვიკავშირდი
+                  კოლექციების ნახვა <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
