@@ -5,7 +5,15 @@ import office from "@/assets/offices.png";
 import living from "@/assets/livinges.png";
 import material from "@/assets/material.jpg";
 import kidsRoom from "@/assets/roomos.png";
-import kitchenAlt1 from "@/assets/finalese.png";
+import kitchenWork1 from "@/assets/work/kitchen-1.jpeg";
+import kitchenWork2 from "@/assets/work/kitchen-2.jpeg";
+import kitchenWork3 from "@/assets/work/kitchen-3.jpeg";
+import kitchenWork4 from "@/assets/work/kitchen-4.jpeg";
+import kitchenWork5 from "@/assets/work/kitchen-5.png";
+import kitchenWork6 from "@/assets/work/kitchen-6.jpg";
+import kitchenWork7 from "@/assets/work/kitchen-7.jpeg";
+import kitchenWork8 from "@/assets/work/kitchen-8.jpeg";
+import kitchenWork9 from "@/assets/work/kitchen-9.png";
 import { WorkGallery, type WorkCategory } from "@/components/work-gallery";
 
 export const Route = createFileRoute("/collections")({
@@ -69,8 +77,15 @@ const workCategories: WorkCategory[] = [
   {
     title: "სამზარეულო",
     images: [
-      { src: heroKitchen, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenAlt1, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork1, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork2, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork3, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork4, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork5, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork6, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork7, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork8, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork9, alt: "სამზარეულო — LUMO პროექტი" },
     ],
   },
   {
