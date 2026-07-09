@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:lumofurniture.ge)",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\" -o \"C:\\\\Users\\\\Ventury\\\\Desktop\\\\LEMO\\\\LLUMMO\\\\_live_home.html\" -w \"%{http_code}\\\\n\" \"https://lumofurniture.ge\")",
+      "Bash(curl -s --compressed -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\" -o \"C:\\\\Users\\\\Ventury\\\\Desktop\\\\LEMO\\\\LLUMMO\\\\_live_home.html\" \"https://lumofurniture.ge\")",
+      "Bash(xxd)",
+      "Bash(curl -s --compressed -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\" -o \"C:\\\\Users\\\\Ventury\\\\Desktop\\\\LEMO\\\\LLUMMO\\\\_live_collections.html\" \"https://lumofurniture.ge/collections\")",
+      "Bash(npm run *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(npx wrangler *)",
+      "Bash(curl -s --compressed -A \"Mozilla/5.0\" \"https://lumofurniture.ge/collections\" -o \"/tmp/collections_check.html\" -w \"%{http_code}\\\\n\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s --compressed -A \"Mozilla/5.0\" \"https://lumofurniture.ge/\")"
+    ]
+  }
+}
