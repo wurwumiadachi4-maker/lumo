@@ -5,7 +5,7 @@ import bedroom from "@/assets/bedroomes.png";
 import office from "@/assets/offices.png";
 import living from "@/assets/livinges.png";
 import material from "@/assets/material.jpg";
-import heroMobile1 from "@/assets/work/kitchen-3.jpeg";
+import heroMobile1 from "@/assets/work/kitchen-4.png";
 import heroMobile2 from "@/assets/work/kitchen-01.jpeg";
 import heroMobile3 from "@/assets/work/kitchen-1.jpeg";
 import { ArrowUpRight, Ruler, Hammer, Leaf, ShieldCheck } from "lucide-react";
