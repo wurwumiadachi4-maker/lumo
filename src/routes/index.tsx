@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import heroKitchen from "@/assets/kitchenos.png";
 import bedroom from "@/assets/bedroomes.png";
 import office from "@/assets/offices.png";
 import living from "@/assets/livinges.png";
 import material from "@/assets/material.jpg";
+import heroMobile1 from "@/assets/work/kitchen-3.jpeg";
+import heroMobile2 from "@/assets/work/kitchen-01.jpeg";
+import heroMobile3 from "@/assets/work/kitchen-1.jpeg";
 import { ArrowUpRight, Ruler, Hammer, Leaf, ShieldCheck } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -15,6 +19,8 @@ export const Route = createFileRoute("/")({
     ],
   }),
 });
+
+const heroMobileImages = [heroMobile1, heroMobile2, heroMobile3];
 
 const collections = [
   { title: "სამზარეულო", img: heroKitchen, to: "/collections", desc: "" },
@@ -31,6 +37,15 @@ const values = [
 ];
 
 function Index() {
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % heroMobileImages.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div>
       {/* HERO */}
@@ -38,13 +53,17 @@ function Index() {
 
        {/* MOBILE: Full-bleed image with text overlay */}
 <div className="lg:hidden relative h-[90vh] -mt-16 min-h-[600px] flex flex-col justify-end overflow-hidden">
-  <img
-    src={heroKitchen}
-    alt="სახელობო მუხის სამზარეულო"
-    width={1920}
-    height={1280}
-    className="absolute inset-0 h-full w-full object-cover"
-  />
+  {heroMobileImages.map((src, i) => (
+    <img
+      key={src}
+      src={src}
+      alt="სახელობო მუხის სამზარეულო"
+      width={1920}
+      height={1280}
+      className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out"
+      style={{ opacity: i === heroIndex ? 1 : 0 }}
+    />
+  ))}
   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
   <div className="relative z-10 container-x mx-auto max-w-7xl pb-12">
     <h1 className="text-3xl sm:text-4xl leading-[1.05] text-white max-w-2xl">
