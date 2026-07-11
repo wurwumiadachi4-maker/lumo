@@ -1,10 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroKitchen from "@/assets/kitchenos.webp";
-import bedroom from "@/assets/bedroomes.webp";
+import bedroom from "@/assets/bedroomes.webp"; //Bedroom2.webp
+import bedroom2 from "@/assets/work/Bedroom2.webp";
 import office from "@/assets/offices.webp";
+import office2 from "@/assets/work/office2.webp";
 import living from "@/assets/livinges.webp";
 import material from "@/assets/material.webp";
 import kidsRoom from "@/assets/roomos.webp";
+import kidsRoom2 from "@/assets/work/roomos2.webp";
 import Room from "@/assets/work/office-1.webp";
 import Roomforwork from "@/assets/work/office-2.webp";
 import kitchenWork1 from "@/assets/work/kitchen-1.webp";
@@ -101,17 +104,22 @@ const workCategories: WorkCategory[] = [
   {
     title: "სამეცადინო/სამუშაო კუთხე",
     images: [{ src: kidsRoom, alt: "საბავშვო ოთახი — LUMO პროექტი" },
+            { src: kidsRoom2, alt: "საბავშვო ოთახი — LUMO პროექტი" },
             { src: Roomforwork, alt: "ოთახი — LUMO პროექტი" },
             { src: Room, alt: "სამუშაო ოთახი — LUMO პროექტი" }
     ],      
   },
   {
     title: "საძინებელი",
-    images: [{ src: bedroom, alt: "საძინებელი — LUMO პროექტი" }],
+    images: [{ src: bedroom, alt: "საძინებელი — LUMO პროექტი" },
+             { src: bedroom2, alt: "საძინებელი — LUMO ს პროექტი" },
+    ], //bedroom2
   },
   {
     title: "საოფისე",
-    images: [{ src: office, alt: "საოფისე — LUMO პროექტი" }],
+    images: [{ src: office, alt: "საოფისე — LUMO პროექტი" },
+             { src: office2, alt: "საოფისე — LUMO პროექტი" }
+    ],
   },
   {
     title: "მისაღები",
