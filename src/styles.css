@@ -142,3 +142,31 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+.hero-kenburns-1 {
+  animation: heroKenburns1 15s ease-in-out infinite alternate;
+}
+.hero-kenburns-2 {
+  animation: heroKenburns2 15s ease-in-out infinite alternate;
+}
+.hero-kenburns-3 {
+  animation: heroKenburns3 15s ease-in-out infinite alternate;
+}
+@keyframes heroKenburns1 {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.12) translate(-2%, -1.5%); }
+}
+@keyframes heroKenburns2 {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.12) translate(2%, 1%); }
+}
+@keyframes heroKenburns3 {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.12) translate(-1.5%, 2%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns-1,
+  .hero-kenburns-2,
+  .hero-kenburns-3 {
+    animation: none;
+  }
+}

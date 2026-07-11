@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
 });
 
 const heroMobileImages = [heroMobile1, heroMobile2, heroMobile3];
-
+const heroKenburnsVariants = ["hero-kenburns-1", "hero-kenburns-2", "hero-kenburns-3"];
 const collections = [
   { title: "სამზარეულო", img: heroKitchen, to: "/collections", desc: "" },
   { title: "საძინებელი", img: bedroom, to: "/collections", desc: "" },
@@ -42,7 +42,7 @@ function Index() {
   useEffect(() => {
     const id = setInterval(() => {
       setHeroIndex((i) => (i + 1) % heroMobileImages.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(id);
   }, []);
 
@@ -53,15 +53,15 @@ function Index() {
 
        {/* MOBILE: Full-bleed image with text overlay */}
 <div className="lg:hidden relative h-[90vh] -mt-16 min-h-[600px] flex flex-col justify-end overflow-hidden">
-  {heroMobileImages.map((src, i) => (
+ {heroMobileImages.map((src, i) => (
     <img
       key={src}
       src={src}
       alt="სახელობო მუხის სამზარეულო"
       width={1920}
       height={1280}
-      className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out"
-      style={{ opacity: i === heroIndex ? 1 : 0 }}
+      className={`${heroKenburnsVariants[i % heroKenburnsVariants.length]} absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out`}
+      style={{ opacity: i === heroIndex ? 1 : 0, animationDelay: `${i * -5}s` }}
     />
   ))}
   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
