@@ -117,6 +117,7 @@ export const Route = createFileRoute("/FAQ")({
           children: JSON.stringify(faqSchema),
         },
       ],
+      links: [{ rel: "canonical", href: "https://lumofurniture.ge/FAQ" }],
     };
   },
 });

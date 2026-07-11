@@ -5,9 +5,10 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "კონტაქტი — LUMO, თბილისი" },
-      { name: "description", content: "მოგვიყევი შენი სივრცის შესახებ. ჩვენ დავუბრუნდებით საუბარს." },
+      { title: "დაგვიკავშირდით — LUMO ავეჯი, თბილისი" },
+      { name: "description", content: "დაუკავშირდით LUMO-ს გუნდს უფასო კონსულტაციისთვის — სამზარეულოს, კარადის ან ინდივიდუალური ავეჯის შეკვეთა თბილისში. სწრაფი პასუხი ტელეფონით, ელფოსტით ან WhatsApp-ით." },
     ],
+    links: [{ rel: "canonical", href: "https://lumofurniture.ge/contact" }],
   }),
 });
 

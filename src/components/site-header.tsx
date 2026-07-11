@@ -6,7 +6,7 @@ const nav = [
   { to: "/", label: "მთავარი" },
   { to: "/collections", label: "კოლექციები" },
   { to: "/about", label: "ჩვენ შესახებ" },
-  { to: "/faq", label: "კითხვები" },
+  { to: "/FAQ", label: "კითხვები" },
   { to: "/contact", label: "კონტაქტი" },
 ] as const;
 
@@ -14,13 +14,12 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur-[50px] bg-background/50 border-b border-border/60">
-      <div className="container-x mx-auto max-w-7xl flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center group">
+      <div className="container-x mx-auto max-w-7xl flex items-center justify-between h-12 md:h-20">
+        <Link to="/" className="flex items-center h-full group">
           <img
             src="/lumo-logo-transparent.png"
             alt="LUMO"
-            className="h-8 md:h-10 w-auto object-contain block translate-y-[6.3px]"
-            style={{ aspectRatio: "auto" }}
+            className="h-9 md:h-9 w-auto object-contain"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-10">

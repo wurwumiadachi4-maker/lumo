@@ -69,16 +69,38 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: "LUMO",
+  telephone: "+995555025588",
+  email: "dachi@lumofurniture.ge",
+  url: "https://lumofurniture.ge",
+  image: "https://lumofurniture.ge/lumo-logo-transparent.png",
+  areaServed: {
+    "@type": "City",
+    name: "Tbilisi",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Tbilisi",
+    addressCountry: "GE",
+  },
+  sameAs: ["https://www.facebook.com/profile.php?id=61584012764345"],
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "LUMO — სახელობო ავეჯი, თბილისი" },
-      { name: "description", content: "სახელობო ავეჯი თბილისში — სამზარეულოები, კარადები, საძინებლები. პრემიუმ ხარისხი, 10 წლიანი გარანტია." },
-      { property: "og:title", content: "LUMO — სახელობო ავეჯი, თბილისი" },
-      { property: "og:description", content: "სახელობო ავეჯი თბილისში — სამზარეულოები, კარადები, საძინებლები. პრემიუმ ხარისხი, 10 წლიანი გარანტია." },
+      { title: "LUMO — ავეჯის დამზადება შეკვეთით თბილისში" },
+      { name: "description", content: "LUMO ამზადებს სახელობო სამზარეულოებს, კარადებს, საძინებლის ავეჯსა და გარდერობებს თბილისში. ინდივიდუალური დიზაინი, ხარისხიანი მასალები და 10-წლიანი გარანტია." },
+      { property: "og:title", content: "LUMO — ავეჯის დამზადება შეკვეთით თბილისში" },
+      { property: "og:description", content: "LUMO ამზადებს სახელობო სამზარეულოებს, კარადებს, საძინებლის ავეჯსა და გარდერობებს თბილისში. ინდივიდუალური დიზაინი, ხარისხიანი მასალები და 10-წლიანი გარანტია." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://lumofurniture.ge/lumo-logo-transparent.png" },
+      { property: "og:url", content: "https://lumofurniture.ge" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -86,6 +108,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap" },
+      { rel: "canonical", href: "https://lumofurniture.ge/" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessSchema),
+      },
     ],
   }),
   shellComponent: RootShell,

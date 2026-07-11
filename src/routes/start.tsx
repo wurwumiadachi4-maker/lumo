@@ -18,28 +18,29 @@ import {
 
 //material1.jpg
 
-import kitchenImg from "@/assets/kitchenos.png";
-import bedroomImg from "@/assets/bedroomes.png";
-import officeImg from "@/assets/offices.png";
-import livingImg from "@/assets/livinges.png";
-import mat1Img from "@/assets/material1.jpg";
-import mat2Img from "@/assets/material2.jpg";
-import mat3Img from "@/assets/material3.png";
-import mat4Img from "@/assets/material.jpg";
-import wardrobeImg from "@/assets/Wardrobe.jpeg";
-import kidsImg from "@/assets/roomos.png";
+import kitchenImg from "@/assets/kitchenos.webp";
+import bedroomImg from "@/assets/bedroomes.webp";
+import officeImg from "@/assets/offices.webp";
+import livingImg from "@/assets/livinges.webp";
+import mat1Img from "@/assets/material1.webp";
+import mat2Img from "@/assets/material2.webp";
+import mat3Img from "@/assets/material3.webp";
+import mat4Img from "@/assets/material.webp";
+import wardrobeImg from "@/assets/Wardrobe.webp";
+import kidsImg from "@/assets/roomos.webp";
 
 export const Route = createFileRoute("/start")({
   component: StartFunnel,
   head: () => ({
     meta: [
-      { title: "პროექტის დაწყება — LUMO" },
+      { title: "პროექტის დაწყება — უფასო კონსულტაცია | LUMO" },
       {
         name: "description",
         content:
-          "დაიწყე შენი ავეჯის პროექტი LUMO-სთან — 1 წუთში მოგვიყევი შენი სივრცის შესახებ და მიიღე უფასო კონსულტაცია.",
+          "დაიწყეთ თქვენი სამზარეულოს, გარდერობის ან ინდივიდუალური ავეჯის პროექტი LUMO-სთან — მოგვიყევით 1 წუთში სივრცის შესახებ და მიიღეთ უფასო კონსულტაცია და ღირებულების შეფასება.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://lumofurniture.ge/start" }],
   }),
 });
 

@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import heroKitchen from "@/assets/kitchenos.png";
-import bedroom from "@/assets/bedroomes.png";
-import office from "@/assets/offices.png";
-import living from "@/assets/livinges.png";
-import material from "@/assets/material.jpg";
-import heroMobile1 from "@/assets/work/kitchen-4.png";
-import heroMobile2 from "@/assets/work/kitchen-01.jpeg";
-import heroMobile3 from "@/assets/work/kitchen-1.jpeg";
+import heroKitchen from "@/assets/kitchenos.webp";
+import bedroom from "@/assets/bedroomes.webp";
+import office from "@/assets/offices.webp";
+import living from "@/assets/livinges.webp";
+import material from "@/assets/material.webp";
+import heroMobile1 from "@/assets/work/kitchen-4.webp";
+import heroMobile2 from "@/assets/work/kitchen-01.webp";
+import heroMobile3 from "@/assets/work/kitchen-1.webp";
 import { ArrowUpRight, Ruler, Hammer, Leaf, ShieldCheck } from "lucide-react";
 
 export const Route = createFileRoute("/")({

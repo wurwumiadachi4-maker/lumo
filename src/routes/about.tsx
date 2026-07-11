@@ -1,15 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import craft from "@/assets/finalese.png";
-import material from "@/assets/material.jpg";
+import craft from "@/assets/finalese.webp";
+import material from "@/assets/material.webp";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   component: About,
   head: () => ({
     meta: [
-      { title: "ჩვენ შესახებ — LUMO, თბილისი" },
-      { name: "description", content: "LUMO — ავეჯის დამზადება შეკვეთით." },
+      { title: "ჩვენ შესახებ — LUMO ავეჯის სახელოსნო, თბილისი" },
+      { name: "description", content: "გაიცანით LUMO — ოჯახური ავეჯის სახელოსნო თბილისში, 15+ წლის გამოცდილებით სამზარეულოების, კარადების, გარდერობებისა და ინდივიდუალური ავეჯის დამზადებაში." },
     ],
+    links: [{ rel: "canonical", href: "https://lumofurniture.ge/about" }],
   }),
 });
 

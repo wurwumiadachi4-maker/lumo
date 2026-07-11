@@ -1,22 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroKitchen from "@/assets/kitchenos.png";
-import bedroom from "@/assets/bedroomes.png";
-import office from "@/assets/offices.png";
-import living from "@/assets/livinges.png";
-import material from "@/assets/material.jpg";
-import kidsRoom from "@/assets/roomos.png";
-import kitchenWork1 from "@/assets/work/kitchen-1.jpeg";
-import kitchenWork0 from "@/assets/work/kitchen-0.jpeg";
-import kitchenWork01 from "@/assets/work/kitchen-01.jpeg";
-import kitchenWork3 from "@/assets/work/kitchen-3.jpeg";
-import ourmadekitchen from "@/assets/work/ourmadekitchen.jpeg";
-import kitchenWork4 from "@/assets/work/kitchen-4.png";
-import kitchenWork5 from "@/assets/work/kitchen-5.jpeg";
-import kitchenWork56 from "@/assets/work/kitchen-05.jpeg";
-import kitchenWork6 from "@/assets/work/kitchen-6.jpeg";
-import kitchenWork7 from "@/assets/work/kitchen-7.jpeg";
-import kitchenWork8 from "@/assets/work/kitchen-8.jpeg";
-import kitchenWork9 from "@/assets/work/kitchen-9.jpg"; //ourmadekitchen.jpeg
+import heroKitchen from "@/assets/kitchenos.webp";
+import bedroom from "@/assets/bedroomes.webp";
+import office from "@/assets/offices.webp";
+import living from "@/assets/livinges.webp";
+import material from "@/assets/material.webp";
+import kidsRoom from "@/assets/roomos.webp";
+import kitchenWork1 from "@/assets/work/kitchen-1.webp";
+import kitchenWork0 from "@/assets/work/kitchen-0.webp";
+import kitchenWork01 from "@/assets/work/kitchen-01.webp";
+import kitchenWork3 from "@/assets/work/kitchen-3.webp";
+import ourmadekitchen from "@/assets/work/ourmadekitchen.webp";
+import kitchenWork4 from "@/assets/work/kitchen-4.webp";
+import kitchenWork5 from "@/assets/work/kitchen-5.webp";
+import kitchenWork56 from "@/assets/work/kitchen-05.webp";
+import kitchenWork6 from "@/assets/work/kitchen-6.webp";
+import kitchenWork7 from "@/assets/work/kitchen-7.webp";
+import kitchenWork8 from "@/assets/work/kitchen-8.webp";
+
 
 import { WorkGallery, type WorkCategory } from "@/components/work-gallery";
 
@@ -24,11 +24,12 @@ export const Route = createFileRoute("/collections")({
   component: Collections,
   head: () => ({
     meta: [
-      { title: "კოლექციები — LUMO სახელობო ავეჯი" },
-      { name: "description", content: "სახელობო სამზარეულოები, კარადები, საოფისე ავეჯი და სალონის ინტერიერები — დამზადებული ინდივიდუალურად თბილისში." },
-      { property: "og:title", content: "კოლექციები — LUMO" },
-      { property: "og:description", content: "სახელობო სამზარეულოები, კარადები, საოფისე ავეჯი და სალონის ინტერიერები." },
+      { title: "სამზარეულოს, კარადის და ავეჯის კოლექციები — LUMO" },
+      { name: "description", content: "დაათვალიერეთ LUMO-ს კოლექციები — სამზარეულოს დამზადება, კარადები, გარდერობები, საძინებლისა და საოფისე ავეჯი. ინდივიდუალურად დამზადებული თბილისში, MDF და პრემიუმ მასალებით." },
+      { property: "og:title", content: "სამზარეულოს, კარადის და ავეჯის კოლექციები — LUMO" },
+      { property: "og:description", content: "დაათვალიერეთ LUMO-ს კოლექციები — სამზარეულოს დამზადება, კარადები, გარდერობები, საძინებლისა და საოფისე ავეჯი. ინდივიდუალურად დამზადებული თბილისში, MDF და პრემიუმ მასალებით." },
     ],
+    links: [{ rel: "canonical", href: "https://lumofurniture.ge/collections" }],
   }),
 });
 
@@ -36,22 +37,22 @@ const items = [
   {
     title: "სამზარეულოები",
     img: heroKitchen,
-    desc: "თანამედროვე და პრაქტიკული სამზარეულოები ყოველდღიური კომფორტისთვის.",
-    descFull: "ყოველი სამზარეულო მზადდება თქვენი სივრცისა და ყოველდღიური საჭიროებების მიხედვით. ვქმნით თანამედროვე, პრაქტიკულ და გამძლე ავეჯს.",
+    desc: "სამზარეულოს დამზადება შეკვეთით — თანამედროვე და პრაქტიკული სამზარეულოები ყოველდღიური კომფორტისთვის.",
+    descFull: "ყოველი სამზარეულო შეკვეთით მზადდება თქვენი სივრცისა და ყოველდღიური საჭიროებების მიხედვით. ვქმნით თანამედროვე და პრაქტიკულ MDF სამზარეულოს, გამძლე მასალებითა და ხარისხიანი ფურნიტურით.",
     specs: ["თანამედროვე და ფუნქციური დიზაინი", "გამძლე მასალა", "ხარისხიანი მექანიზმები"],
   },
   {
     title: "საძინებლები",
     img: bedroom,
-    desc: "მყუდრო და ფუნქციური ავეჯი კომფორტული საძინებლისთვის.",
-    descFull: "ვამზადებთ ჩაშენებულ კარადებსა და საძინებლის ავეჯს, რომელიც იდეალურად ერგება თქვენს სივრცეს და ინტერიერს.",
+    desc: "გარდერობის დამზადება და კარადის დამზადება — მყუდრო და ფუნქციური ავეჯი კომფორტული საძინებლისთვის.",
+    descFull: "გვთავაზობთ გარდერობის დამზადებასა და კარადის დამზადებას საძინებლისთვის — ჩაშენებული კარადები და საძინებლის ავეჯი, რომელიც იდეალურად ერგება თქვენს სივრცეს და ინტერიერს.",
     specs: ["თანამედროვე დიზაინი", "სივრცის მაქსიმალური გამოყენება"],
   },
   {
     title: "ოფისები",
     img: office,
-    desc: "პრაქტიკული და თანამედროვე საოფისე ავეჯი სამუშაო სივრცისთვის.",
-    descFull: "ვამზადებთ საოფისე ავეჯს, რომელიც სივრცეს უფრო ორგანიზებულსა და კომფორტულს ხდის ყოველდღიური მუშაობისთვის.",
+    desc: "ოფისის ავეჯი — პრაქტიკული და თანამედროვე გადაწყვეტები სამუშაო სივრცისთვის.",
+    descFull: "ვამზადებთ ოფისის ავეჯს — მაგიდებს, კარადებსა და თაროებს, რომელიც სივრცეს უფრო ორგანიზებულსა და კომფორტულს ხდის ყოველდღიური მუშაობისთვის.",
     specs: ["თანამედროვე და პრაქტიკული დიზაინი"],
   },
   {
@@ -64,7 +65,7 @@ const items = [
   {
     title: "საბავშვო ოთახი",
     img: kidsRoom,
-    desc: "მოსახერხებელი და ფუნქციური ავეჯი სამუშაო და სასწავლო სივრცისთვის.",
+    desc: "საბავშვო ოთახის ავეჯი — მოსახერხებელი და ფუნქციური, სამუშაო და სასწავლო სივრცისთვის.",
     descFull: "ვამზადებთ საბავშვო ოთახის ავეჯს, რომელიც კომფორტულია როგორც სწავლისთვის, ისე ყოველდღიური გამოყენებისთვის.",
     specs: ["პრაქტიკული სამუშაო კუთხე", "მოსახერხებელი თაროები", "ფუნქციური დიზაინი"],
   },
@@ -81,18 +82,17 @@ const workCategories: WorkCategory[] = [
   {
     title: "სამზარეულო",
     images: [
-      { src: kitchenWork1, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork0, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork01, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork3, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: ourmadekitchen, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork4, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork5, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork56, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork6, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork7, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork8, alt: "სამზარეულო — LUMO პროექტი" },
-      { src: kitchenWork9, alt: "სამზარეულო — LUMO პროექტი" },
+      { src: kitchenWork1, alt: "სამზარეულო ხის ზედა და ნაცრისფერი ქვედა კარადებით, მარმარილოს ფონითა და საუზმის კუნძულით — LUMO პროექტი" },
+      { src: kitchenWork0, alt: "სამზარეულო შავი ქვედა და ხის ზედა კარადებით, ჩაშენებული შავი ტექნიკითა და სასადილო მაგიდით — LUMO პროექტი" },
+      { src: kitchenWork01, alt: "მუქი სამზარეულო ხის ზედა კარადებით, შავი აირის გაზქურითა და ჩაშენებული ტექნიკით — LUMO პროექტი" },
+      { src: kitchenWork3, alt: "სამზარეულო თეთრი ზედა და ხის ქვედა კარადებით, შავი ჩაშენებული ღუმელით — LUMO პროექტი" },
+      { src: ourmadekitchen, alt: "თანამედროვე სამზარეულო თეთრი ზედა და ხის ქვედა კარადებით, შავი ონკანითა და ჭურჭლის სარეცხით — LUMO პროექტი" },
+      { src: kitchenWork4, alt: "სამზარეულო თეთრი ზედა და მუქი კარადებით, კრამიტის ფონითა და ჩაშენებული შავი ღუმლებით — LUMO პროექტი" },
+      { src: kitchenWork5, alt: "კრემისფერი სამზარეულო აგურის ფაქტურის ფონით, ღვინის თაროთი და ხის სამუშაო ზედაპირით — LUMO პროექტი" },
+      { src: kitchenWork56, alt: "სამზარეულო მუქი მარმარილოს კუნძულით, ხის კარადებითა და შავი ბარის სკამებით — LUMO პროექტი" },
+      { src: kitchenWork6, alt: "ნაცრისფერი სამზარეულო ხის ზედა კარადებით, თეთრი სამუშაო ზედაპირითა და შავი არმატურით — LUMO პროექტი" },
+      { src: kitchenWork7, alt: "სამზარეულო თეთრი ზედა და კაკლის ხის ქვედა კარადებით, პრიალა თეთრი სამუშაო ზედაპირით — LUMO პროექტი" },
+      { src: kitchenWork8, alt: "კრემისფერი სამზარეულო ვარდისფერი აგურის ფონითა და შავი დაკიდებული სანათით — LUMO პროექტი" },
     ],
   },
   {
