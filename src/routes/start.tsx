@@ -7,27 +7,7 @@ import {
   Phone,
   MessageCircle,
   PhoneCall,
-  ChefHat,
-  Bed,
-  Briefcase,
-  Sofa,
-  Baby,
-  Shirt,
-  Sparkles,
 } from "lucide-react";
-
-//material1.jpg
-
-import kitchenImg from "@/assets/kitchenos.webp";
-import bedroomImg from "@/assets/bedroomes.webp";
-import officeImg from "@/assets/offices.webp";
-import livingImg from "@/assets/livinges.webp";
-import mat1Img from "@/assets/material1.webp";
-import mat2Img from "@/assets/material2.webp";
-import mat3Img from "@/assets/material3.webp";
-import mat4Img from "@/assets/material.webp";
-import wardrobeImg from "@/assets/Wardrobe.webp";
-import kidsImg from "@/assets/roomos.webp";
 
 export const Route = createFileRoute("/start")({
   component: StartFunnel,
@@ -55,14 +35,12 @@ type FurnitureType =
   | "kids"
   | "other";
 
-type Style = "modern-oak" | "dark-espresso" | "classic-white" | "unsure";
 type Size = "small" | "medium" | "large" | "unsure";
 type Priority = "economy" | "balance" | "premium";
 type ContactMethod = "whatsapp" | "call" | "callback";
 
 interface FunnelData {
   furniture: FurnitureType[];
-  style: Style | null;
   size: Size | null;
   priority: Priority | null;
   contactMethod: ContactMethod | null;
@@ -72,7 +50,6 @@ interface FunnelData {
 
 const initialData: FunnelData = {
   furniture: [],
-  style: null,
   size: null,
   priority: null,
   contactMethod: null,
@@ -90,13 +67,6 @@ const furnitureLabels: Record<FurnitureType, string> = {
   living: "მისაღები",
   kids: "საბავშვო",
   other: "სხვა",
-};
-
-const styleLabels: Record<Style, string> = {
-  "modern-oak": "თანამედროვე მუხა",
-  "dark-espresso": "მუქი ესპრესო",
-  "classic-white": "კლასიკური თეთრი",
-  unsure: "არ ვიცი, თქვენ შემომთავაზეთ",
 };
 
 const sizeLabels: Record<Size, string> = {
@@ -123,7 +93,7 @@ function StartFunnel() {
   const [data, setData] = useState<FunnelData>(initialData);
   const [submitted, setSubmitted] = useState(false);
 
-  const totalSteps = 6; // 0..5 = questions, 6 = summary/contact
+  const totalSteps = 5; // 0..4 = questions/contact
   const progress = Math.round(((step + 1) / (totalSteps + 1)) * 100);
 
   const canProceed = (() => {
@@ -131,14 +101,12 @@ function StartFunnel() {
       case 0:
         return data.furniture.length > 0;
       case 1:
-        return data.style !== null;
-      case 2:
         return data.size !== null;
-      case 3:
+      case 2:
         return data.priority !== null;
-      case 4:
+      case 3:
         return data.contactMethod !== null;
-      case 5:
+      case 4:
         // contact details validation
         if (data.contactMethod === "callback") {
           return data.name.trim().length > 1 && /^[+\d\s\-()]{9,}$/.test(data.phone);
@@ -170,7 +138,6 @@ function StartFunnel() {
       lines.push(
         `• ავეჯი: ${data.furniture.map((f) => furnitureLabels[f]).join(", ")}`,
       );
-    if (data.style) lines.push(`• სტილი: ${styleLabels[data.style]}`);
     if (data.size) lines.push(`• ზომა: ${sizeLabels[data.size]}`);
     if (data.priority) lines.push(`• პრიორიტეტი: ${priorityLabels[data.priority]}`);
     if (data.name) lines.push(`• სახელი: ${data.name}`);
@@ -229,30 +196,24 @@ function StartFunnel() {
           />
         )}
         {step === 1 && (
-          <StepStyle
-            value={data.style}
-            onChange={(style) => setData({ ...data, style })}
-          />
-        )}
-        {step === 2 && (
           <StepSize
             value={data.size}
             onChange={(size) => setData({ ...data, size })}
           />
         )}
-        {step === 3 && (
+        {step === 2 && (
           <StepPriority
             value={data.priority}
             onChange={(priority) => setData({ ...data, priority })}
           />
         )}
-        {step === 4 && (
+        {step === 3 && (
           <StepContactMethod
             value={data.contactMethod}
             onChange={(contactMethod) => setData({ ...data, contactMethod })}
           />
         )}
-        {step === 5 && (
+        {step === 4 && (
           <StepContactDetails
             data={data}
             onChange={setData}
@@ -273,7 +234,7 @@ function StartFunnel() {
           უკან
         </button>
 
-        {step < 5 ? (
+        {step < 4 ? (
           <button
             onClick={next}
             disabled={!canProceed}
@@ -297,14 +258,14 @@ function StepFurniture({
   value: FurnitureType[];
   onChange: (v: FurnitureType[]) => void;
 }) {
-  const options: { id: FurnitureType; label: string; img?: string; icon: any }[] = [
-    { id: "kitchen", label: "სამზარეულო", img: kitchenImg, icon: ChefHat },
-    { id: "bedroom", label: "საძინებელი", img: bedroomImg, icon: Bed },
-    { id: "wardrobe", label: "გარდერობი", img: wardrobeImg, icon: Shirt },
-    { id: "office", label: "საოფისე", img: officeImg, icon: Briefcase },
-    { id: "living", label: "მისაღები", img: livingImg, icon: Sofa },
-    { id: "kids", label: "საბავშვო", img: kidsImg, icon: Baby },
-    { id: "other", label: "სხვა", icon: Sparkles },
+  const options: { id: FurnitureType; label: string; desc: string }[] = [
+    { id: "kitchen", label: "სამზარეულო", desc: "სამზარეულოს დამზადება" },
+    { id: "bedroom", label: "საძინებელი", desc: "საძინებლის ავეჯი" },
+    { id: "wardrobe", label: "გარდერობი", desc: "გარდერობის დამზადება" },
+    { id: "office", label: "საოფისე", desc: "ოფისის ავეჯი" },
+    { id: "living", label: "მისაღები", desc: "მისაღები ოთახის ავეჯი" },
+    { id: "kids", label: "საბავშვო", desc: "საბავშვო ოთახის ავეჯი" },
+    { id: "other", label: "სხვა", desc: "სხვა ტიპის ავეჯი" },
   ];
 
   const toggle = (id: FurnitureType) => {
@@ -320,137 +281,30 @@ function StepFurniture({
       <p className="text-sm text-muted-foreground mb-8">
         შეგიძლიათ მონიშნოთ რამდენიმე ვარიანტი
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {options.map((opt) => {
           const selected = value.includes(opt.id);
           return (
             <button
               key={opt.id}
               onClick={() => toggle(opt.id)}
-              className={`group relative overflow-hidden rounded-xl border-2 transition-all text-left bg-white ${
+              className={`p-5 md:p-6 rounded-xl border-2 transition-all text-left ${
                 selected
-                  ? "border-accent ring-2 ring-accent/20"
+                  ? "border-accent bg-accent/5"
                   : "border-border hover:border-foreground/30"
               }`}
             >
-              {opt.img ? (
-                <div className="relative aspect-[4/3] bg-muted">
-                  <img
-                    src={opt.img}
-                    alt={opt.label}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  {selected && (
-                    <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-accent flex items-center justify-center">
-                      <Check className="h-4 w-4 text-accent-foreground" />
-                    </div>
-                  )}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 text-white text-sm md:text-base font-medium">
-                    {opt.label}
-                  </div>
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="text-base md:text-lg font-medium">{opt.label}</div>
+                  <div className="text-sm text-muted-foreground mt-0.5">{opt.desc}</div>
                 </div>
-              ) : (
-                <div className="aspect-[4/3] bg-secondary/40 flex flex-col items-center justify-center gap-2 p-4 relative">
-                  <opt.icon className="h-7 w-7 text-muted-foreground" />
-                  <div className="text-sm md:text-base font-medium">{opt.label}</div>
-                  {selected && (
-                    <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-accent flex items-center justify-center">
-                      <Check className="h-4 w-4 text-accent-foreground" />
-                    </div>
-                  )}
-                </div>
-              )}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-/* ---------- Step 2: Style ---------- */
-
-function StepStyle({
-  value,
-  onChange,
-}: {
-  value: Style | null;
-  onChange: (v: Style) => void;
-}) {
-  const options: {
-    id: Style;
-    label: string;
-    desc: string;
-    img: string;
-  }[] = [
-    {
-      id: "modern-oak",
-      label: "თეთრი + Walnut",
-      desc: "კლასიკური კონტრასტი",
-      img: mat1Img,
-    },
-    {
-      id: "dark-espresso",
-      label: "თეთრი + Oak",
-      desc: "თბილი, ნათელი კომბინაცია",
-      img: mat2Img,
-    },
-    {
-      id: "classic-white",
-      label: "Sage + Oak",
-      desc: "ბუნებრივი, თანამედროვე სტილი",
-      img: mat3Img,
-    },
-    {
-      id: "unsure",
-      label: "არ ვიცი, შემომთავაზეთ",
-      desc: "გავარჩევთ ერთად კონსულტაციაზე",
-      img: mat4Img,
-    },
-  ];
-
-  return (
-    <div>
-      <h2 className="text-3xl md:text-4xl leading-tight mb-3">
-        რომელი სტილი მოგწონთ?
-      </h2>
-      <p className="text-sm text-muted-foreground mb-8">
-        აირჩიეთ სასურველი მასალის კომბინაცია
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-        {options.map((opt) => {
-          const selected = value === opt.id;
-          return (
-            <button
-              key={opt.id}
-              onClick={() => onChange(opt.id)}
-           className={`group relative overflow-hidden rounded-xl border-2 transition-all text-left bg-white ${
-             selected
-             ? "border-accent ring-2 ring-accent/20"
-             : "border-border hover:border-foreground/30"
-            }`}
-            >
-              <div className="relative aspect-[4/3]" style={{backgroundColor: '#FAF9F7'}}>
-                <img
-                  src={opt.img}
-                  alt={opt.label}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
                 {selected && (
-                  <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-accent flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
                     <Check className="h-4 w-4 text-accent-foreground" />
                   </div>
                 )}
               </div>
-              <div className="p-4">
-                <div className="text-base font-medium">{opt.label}</div>
-                <div className="text-sm text-muted-foreground mt-0.5">
-                  {opt.desc}
-                </div>
-              </div>
             </button>
           );
         })}
@@ -459,7 +313,7 @@ function StepStyle({
   );
 }
 
-/* ---------- Step 3: Size ---------- */
+/* ---------- Step 2: Size ---------- */
 
 function StepSize({
   value,
@@ -515,7 +369,7 @@ function StepSize({
   );
 }
 
-/* ---------- Step 4: Priority ---------- */
+/* ---------- Step 3: Priority ---------- */
 
 function StepPriority({
   value,
@@ -582,7 +436,7 @@ function StepPriority({
   );
 }
 
-/* ---------- Step 5: Contact method choice ---------- */
+/* ---------- Step 4: Contact method choice ---------- */
 
 function StepContactMethod({
   value,
@@ -664,7 +518,7 @@ function StepContactMethod({
   );
 }
 
-/* ---------- Step 6: Contact details / final action ---------- */
+/* ---------- Step 5: Contact details / final action ---------- */
 
 function StepContactDetails({
   data,
@@ -818,7 +672,6 @@ function SummaryBlock({ data }: { data: FunnelData }) {
       label: "ავეჯი",
       value: data.furniture.map((f) => furnitureLabels[f]).join(", "),
     });
-  if (data.style) items.push({ label: "სტილი", value: styleLabels[data.style] });
   if (data.size) items.push({ label: "ზომა", value: sizeLabels[data.size] });
   if (data.priority)
     items.push({ label: "პრიორიტეტი", value: priorityLabels[data.priority] });
