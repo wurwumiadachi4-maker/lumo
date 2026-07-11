@@ -5,6 +5,8 @@ import office from "@/assets/offices.webp";
 import living from "@/assets/livinges.webp";
 import material from "@/assets/material.webp";
 import kidsRoom from "@/assets/roomos.webp";
+import Room from "@/assets/work/office-1.webp";
+import Roomforwork from "@/assets/work/office-2.webp";
 import kitchenWork1 from "@/assets/work/kitchen-1.webp";
 import kitchenWork0 from "@/assets/work/kitchen-0.webp";
 import kitchenWork01 from "@/assets/work/kitchen-01.webp";
@@ -16,7 +18,7 @@ import kitchenWork56 from "@/assets/work/kitchen-05.webp";
 import kitchenWork6 from "@/assets/work/kitchen-6.webp";
 import kitchenWork7 from "@/assets/work/kitchen-7.webp";
 import kitchenWork8 from "@/assets/work/kitchen-8.webp";
-
+import ourmadekitchenn from "@/assets/work/ourmadekitchenn.webp";
 
 import { WorkGallery, type WorkCategory } from "@/components/work-gallery";
 
@@ -82,9 +84,10 @@ const workCategories: WorkCategory[] = [
   {
     title: "სამზარეულო",
     images: [
-      { src: kitchenWork1, alt: "სამზარეულო ხის ზედა და ნაცრისფერი ქვედა კარადებით, მარმარილოს ფონითა და საუზმის კუნძულით — LUMO პროექტი" },
+      { src: ourmadekitchenn, alt: "სამზარეულო ხის ზედა და ნაცრისფერი ქვედა კარადებით, მარმარილოს ფონითა და საუზმის კუნძულით — LUMO პროექტი" },
       { src: kitchenWork0, alt: "სამზარეულო შავი ქვედა და ხის ზედა კარადებით, ჩაშენებული შავი ტექნიკითა და სასადილო მაგიდით — LUMO პროექტი" },
       { src: kitchenWork01, alt: "მუქი სამზარეულო ხის ზედა კარადებით, შავი აირის გაზქურითა და ჩაშენებული ტექნიკით — LUMO პროექტი" },
+      { src: kitchenWork1, alt: "სამზარეულო ხის ზედა და ნაცრისფერი ქვედა კარადებით, მარმარილოს ფონითა და საუზმის კუნძულით — LUMO პროექტი" },
       { src: kitchenWork3, alt: "სამზარეულო თეთრი ზედა და ხის ქვედა კარადებით, შავი ჩაშენებული ღუმელით — LUMO პროექტი" },
       { src: ourmadekitchen, alt: "თანამედროვე სამზარეულო თეთრი ზედა და ხის ქვედა კარადებით, შავი ონკანითა და ჭურჭლის სარეცხით — LUMO პროექტი" },
       { src: kitchenWork4, alt: "სამზარეულო თეთრი ზედა და მუქი კარადებით, კრამიტის ფონითა და ჩაშენებული შავი ღუმლებით — LUMO პროექტი" },
@@ -92,8 +95,15 @@ const workCategories: WorkCategory[] = [
       { src: kitchenWork56, alt: "სამზარეულო მუქი მარმარილოს კუნძულით, ხის კარადებითა და შავი ბარის სკამებით — LUMO პროექტი" },
       { src: kitchenWork6, alt: "ნაცრისფერი სამზარეულო ხის ზედა კარადებით, თეთრი სამუშაო ზედაპირითა და შავი არმატურით — LUMO პროექტი" },
       { src: kitchenWork7, alt: "სამზარეულო თეთრი ზედა და კაკლის ხის ქვედა კარადებით, პრიალა თეთრი სამუშაო ზედაპირით — LUMO პროექტი" },
-      { src: kitchenWork8, alt: "კრემისფერი სამზარეულო ვარდისფერი აგურის ფონითა და შავი დაკიდებული სანათით — LUMO პროექტი" },
+      { src: kitchenWork8, alt: "კრემისფერი სამზარეულო ვარდისფერი აგურის ფონითა და შავი დაკიდებული სანათით — LUMO პროექტი" }, //ourmadekitchenn
     ],
+  },
+  {
+    title: "სამეცადინო/სამუშაო კუთხე",
+    images: [{ src: kidsRoom, alt: "საბავშვო ოთახი — LUMO პროექტი" },
+            { src: Roomforwork, alt: "ოთახი — LUMO პროექტი" },
+            { src: Room, alt: "სამუშაო ოთახი — LUMO პროექტი" }
+    ],      
   },
   {
     title: "საძინებელი",
@@ -106,10 +116,6 @@ const workCategories: WorkCategory[] = [
   {
     title: "მისაღები",
     images: [{ src: living, alt: "მისაღები ოთახი — LUMO პროექტი" }],
-  },
-  {
-    title: "საბავშვო",
-    images: [{ src: kidsRoom, alt: "საბავშვო ოთახი — LUMO პროექტი" }],
   },
 ];
 

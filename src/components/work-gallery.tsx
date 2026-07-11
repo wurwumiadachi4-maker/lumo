@@ -166,7 +166,7 @@ function CategoryStrip({
       <div className="flex items-baseline justify-between mb-4">
         <h3 className="text-xl md:text-2xl">{category.title}</h3>
         <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-          {category.images.length} პროექტი
+          {category.images.length} ფოტო
         </span>
       </div>
 
