@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -117,18 +117,16 @@ function StartFunnel() {
     }
   })();
 
-  const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
 
   const next = () => {
-  setStep((s) => Math.min(s + 1, totalSteps));
-  scrollToTop();
+    setStep((s) => Math.min(s + 1, totalSteps));
   };
 
   const back = () => {
-  setStep((s) => Math.max(s - 1, 0));
-  scrollToTop();
+    setStep((s) => Math.max(s - 1, 0));
   };
 
   /* ---------- Build WhatsApp message ---------- */
