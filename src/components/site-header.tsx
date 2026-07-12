@@ -19,7 +19,7 @@ export function SiteHeader() {
           <img
             src="/lumo-logo-transparent.png"
             alt="LUMO"
-            className="h-9 md:h-9 w-auto object-contain"
+            className="h-9 md:h-11 w-auto object-contain"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-10">

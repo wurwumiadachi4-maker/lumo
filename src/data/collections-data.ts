@@ -2,6 +2,12 @@ import type { WorkCategory } from "@/components/work-gallery";
 
 import heroKitchen from "@/assets/kitchenos.webp";
 import wardrobeImg from "@/assets/Wardrobe.webp";
+import wardrobe1 from "@/assets/wardrobe1.webp";
+import wardrobe2 from "@/assets/wardrobe2.webp";
+import tvWallUnit1 from "@/assets/TV wall unit.webp";
+import tvWallUnit2 from "@/assets/TV wall unit2.webp";
+import tvWallUnit3 from "@/assets/TV wall unit3.webp";
+import tvUnit from "@/assets/TV unit.webp";
 import bedroom from "@/assets/bedroomes.webp";
 import bedroom2 from "@/assets/work/Bedroom2.webp";
 import office from "@/assets/offices.webp";
@@ -160,6 +166,8 @@ export const bedroomGallery: WorkCategory = {
 export const wardrobeGallery: WorkCategory = {
   title: "გარდერობი",
   images: [
+    { src: wardrobe1, alt: "მუქი ბეჟი ჭერამდე მისული გარდერობი, ხის ფიცრული აქცენტური კედლითა და ჩაშენებული სკამით" },
+    { src: wardrobe2, alt: "თეთრი ჭერამდე მისული გარდერობი ხის ფიცრული ნიშითა და ჩაშენებული სკამით" },
     { src: wardrobeImg, alt: "ჭერამდე მისული მუხის ტექსტურის გარდერობი, ზედა და ქვედა უჯრებით და გასაღები კარებით" },
   ],
 };
@@ -174,7 +182,13 @@ export const officeGallery: WorkCategory = {
 
 export const livingGallery: WorkCategory = {
   title: "მისაღები",
-  images: [{ src: living, alt: "TV კედელი თეთრი პანელითა და შიდა განათებით, კაკლის ხის აქცენტური სვეტითა და საბარგულით" }],
+  images: [
+    { src: tvWallUnit1, alt: "TV კედელი კაკლის ხის ზედაპირიანი თეთრი კარადითა და ხის ვერტიკალური ფიცრების აქცენტური კედლით" },
+    { src: tvWallUnit2, alt: "მწვანე ფერის დაკიდებული TV კედელი ხის ზედაპირითა და ქვედა LED განათებით" },
+    { src: living, alt: "TV კედელი თეთრი პანელითა და შიდა განათებით, კაკლის ხის აქცენტური სვეტითა და საბარგულით" },
+    { src: tvUnit, alt: "კაკლის ხისა და თეთრი ფასადების კომბინაციის სატელევიზიო კონსოლი, ღია თაროთი შუაში" },
+    { src: tvWallUnit3, alt: "მუქი ნაცრისფერი ღარისებრი ტექსტურის TV კედელი ჩაშენებული ღია და დახურული თაროებით" },
+  ],
 };
 
 export const workCategories: WorkCategory[] = [
