@@ -17,6 +17,7 @@ export const Route = createFileRoute("/")({
       { title: "LUMO — სახელობო ავეჯი, თბილისი" },
       { name: "description", content: "სახელობო ავეჯი სამზარეულოებისთვის, საძინებლებისთვის, კაბინეტებისა და სალონებისთვის. თბილისი, საქართველო." },
     ],
+    links: [{ rel: "canonical", href: "https://lumofurniture.ge/" }],
   }),
 });
 

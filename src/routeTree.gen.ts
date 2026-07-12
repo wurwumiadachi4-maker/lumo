@@ -15,6 +15,13 @@ import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as FAQRouteImport } from './routes/FAQ'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
+import { Route as CollectionsWorkspaceRouteImport } from './routes/collections.workspace'
+import { Route as CollectionsWardrobesRouteImport } from './routes/collections.wardrobes'
+import { Route as CollectionsOfficesRouteImport } from './routes/collections.offices'
+import { Route as CollectionsLivingRouteImport } from './routes/collections.living'
+import { Route as CollectionsKitchensRouteImport } from './routes/collections.kitchens'
+import { Route as CollectionsBedroomsRouteImport } from './routes/collections.bedrooms'
 
 const StartRoute = StartRouteImport.update({
   id: '/start',
@@ -46,37 +53,117 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CollectionsRoute,
+} as any)
+const CollectionsWorkspaceRoute = CollectionsWorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => CollectionsRoute,
+} as any)
+const CollectionsWardrobesRoute = CollectionsWardrobesRouteImport.update({
+  id: '/wardrobes',
+  path: '/wardrobes',
+  getParentRoute: () => CollectionsRoute,
+} as any)
+const CollectionsOfficesRoute = CollectionsOfficesRouteImport.update({
+  id: '/offices',
+  path: '/offices',
+  getParentRoute: () => CollectionsRoute,
+} as any)
+const CollectionsLivingRoute = CollectionsLivingRouteImport.update({
+  id: '/living',
+  path: '/living',
+  getParentRoute: () => CollectionsRoute,
+} as any)
+const CollectionsKitchensRoute = CollectionsKitchensRouteImport.update({
+  id: '/kitchens',
+  path: '/kitchens',
+  getParentRoute: () => CollectionsRoute,
+} as any)
+const CollectionsBedroomsRoute = CollectionsBedroomsRouteImport.update({
+  id: '/bedrooms',
+  path: '/bedrooms',
+  getParentRoute: () => CollectionsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/FAQ': typeof FAQRoute
   '/about': typeof AboutRoute
-  '/collections': typeof CollectionsRoute
+  '/collections': typeof CollectionsRouteWithChildren
   '/contact': typeof ContactRoute
   '/start': typeof StartRoute
+  '/collections/bedrooms': typeof CollectionsBedroomsRoute
+  '/collections/kitchens': typeof CollectionsKitchensRoute
+  '/collections/living': typeof CollectionsLivingRoute
+  '/collections/offices': typeof CollectionsOfficesRoute
+  '/collections/wardrobes': typeof CollectionsWardrobesRoute
+  '/collections/workspace': typeof CollectionsWorkspaceRoute
+  '/collections/': typeof CollectionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/FAQ': typeof FAQRoute
   '/about': typeof AboutRoute
-  '/collections': typeof CollectionsRoute
   '/contact': typeof ContactRoute
   '/start': typeof StartRoute
+  '/collections/bedrooms': typeof CollectionsBedroomsRoute
+  '/collections/kitchens': typeof CollectionsKitchensRoute
+  '/collections/living': typeof CollectionsLivingRoute
+  '/collections/offices': typeof CollectionsOfficesRoute
+  '/collections/wardrobes': typeof CollectionsWardrobesRoute
+  '/collections/workspace': typeof CollectionsWorkspaceRoute
+  '/collections': typeof CollectionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/FAQ': typeof FAQRoute
   '/about': typeof AboutRoute
-  '/collections': typeof CollectionsRoute
+  '/collections': typeof CollectionsRouteWithChildren
   '/contact': typeof ContactRoute
   '/start': typeof StartRoute
+  '/collections/bedrooms': typeof CollectionsBedroomsRoute
+  '/collections/kitchens': typeof CollectionsKitchensRoute
+  '/collections/living': typeof CollectionsLivingRoute
+  '/collections/offices': typeof CollectionsOfficesRoute
+  '/collections/wardrobes': typeof CollectionsWardrobesRoute
+  '/collections/workspace': typeof CollectionsWorkspaceRoute
+  '/collections/': typeof CollectionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/FAQ' | '/about' | '/collections' | '/contact' | '/start'
+  fullPaths:
+    | '/'
+    | '/FAQ'
+    | '/about'
+    | '/collections'
+    | '/contact'
+    | '/start'
+    | '/collections/bedrooms'
+    | '/collections/kitchens'
+    | '/collections/living'
+    | '/collections/offices'
+    | '/collections/wardrobes'
+    | '/collections/workspace'
+    | '/collections/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/FAQ' | '/about' | '/collections' | '/contact' | '/start'
+  to:
+    | '/'
+    | '/FAQ'
+    | '/about'
+    | '/contact'
+    | '/start'
+    | '/collections/bedrooms'
+    | '/collections/kitchens'
+    | '/collections/living'
+    | '/collections/offices'
+    | '/collections/wardrobes'
+    | '/collections/workspace'
+    | '/collections'
   id:
     | '__root__'
     | '/'
@@ -85,13 +172,20 @@ export interface FileRouteTypes {
     | '/collections'
     | '/contact'
     | '/start'
+    | '/collections/bedrooms'
+    | '/collections/kitchens'
+    | '/collections/living'
+    | '/collections/offices'
+    | '/collections/wardrobes'
+    | '/collections/workspace'
+    | '/collections/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FAQRoute: typeof FAQRoute
   AboutRoute: typeof AboutRoute
-  CollectionsRoute: typeof CollectionsRoute
+  CollectionsRoute: typeof CollectionsRouteWithChildren
   ContactRoute: typeof ContactRoute
   StartRoute: typeof StartRoute
 }
@@ -140,14 +234,87 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/collections/': {
+      id: '/collections/'
+      path: '/'
+      fullPath: '/collections/'
+      preLoaderRoute: typeof CollectionsIndexRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
+    '/collections/workspace': {
+      id: '/collections/workspace'
+      path: '/workspace'
+      fullPath: '/collections/workspace'
+      preLoaderRoute: typeof CollectionsWorkspaceRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
+    '/collections/wardrobes': {
+      id: '/collections/wardrobes'
+      path: '/wardrobes'
+      fullPath: '/collections/wardrobes'
+      preLoaderRoute: typeof CollectionsWardrobesRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
+    '/collections/offices': {
+      id: '/collections/offices'
+      path: '/offices'
+      fullPath: '/collections/offices'
+      preLoaderRoute: typeof CollectionsOfficesRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
+    '/collections/living': {
+      id: '/collections/living'
+      path: '/living'
+      fullPath: '/collections/living'
+      preLoaderRoute: typeof CollectionsLivingRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
+    '/collections/kitchens': {
+      id: '/collections/kitchens'
+      path: '/kitchens'
+      fullPath: '/collections/kitchens'
+      preLoaderRoute: typeof CollectionsKitchensRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
+    '/collections/bedrooms': {
+      id: '/collections/bedrooms'
+      path: '/bedrooms'
+      fullPath: '/collections/bedrooms'
+      preLoaderRoute: typeof CollectionsBedroomsRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
   }
 }
+
+interface CollectionsRouteChildren {
+  CollectionsBedroomsRoute: typeof CollectionsBedroomsRoute
+  CollectionsKitchensRoute: typeof CollectionsKitchensRoute
+  CollectionsLivingRoute: typeof CollectionsLivingRoute
+  CollectionsOfficesRoute: typeof CollectionsOfficesRoute
+  CollectionsWardrobesRoute: typeof CollectionsWardrobesRoute
+  CollectionsWorkspaceRoute: typeof CollectionsWorkspaceRoute
+  CollectionsIndexRoute: typeof CollectionsIndexRoute
+}
+
+const CollectionsRouteChildren: CollectionsRouteChildren = {
+  CollectionsBedroomsRoute: CollectionsBedroomsRoute,
+  CollectionsKitchensRoute: CollectionsKitchensRoute,
+  CollectionsLivingRoute: CollectionsLivingRoute,
+  CollectionsOfficesRoute: CollectionsOfficesRoute,
+  CollectionsWardrobesRoute: CollectionsWardrobesRoute,
+  CollectionsWorkspaceRoute: CollectionsWorkspaceRoute,
+  CollectionsIndexRoute: CollectionsIndexRoute,
+}
+
+const CollectionsRouteWithChildren = CollectionsRoute._addFileChildren(
+  CollectionsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FAQRoute: FAQRoute,
   AboutRoute: AboutRoute,
-  CollectionsRoute: CollectionsRoute,
+  CollectionsRoute: CollectionsRouteWithChildren,
   ContactRoute: ContactRoute,
   StartRoute: StartRoute,
 }
