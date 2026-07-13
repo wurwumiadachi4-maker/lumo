@@ -10,6 +10,9 @@ import tvWallUnit3 from "@/assets/TV wall unit3.webp";
 import tvUnit from "@/assets/TV unit.webp";
 import bedroom from "@/assets/bedroomes.webp";
 import bedroom2 from "@/assets/work/Bedroom2.webp";
+import bedroomNew1 from "@/assets/bedroom1.webp";
+import bedroomNew2 from "@/assets/bedroom2.webp";
+import bedroomNew3 from "@/assets/bedroom3.webp";
 import office from "@/assets/offices.webp";
 import office2 from "@/assets/work/office2.webp";
 import living from "@/assets/livinges.webp";
@@ -158,6 +161,9 @@ export const workspaceGallery: WorkCategory = {
 export const bedroomGallery: WorkCategory = {
   title: "საძინებელი",
   images: [
+    { src: bedroomNew1, alt: "საძინებელი თეთრი ჭერამდე მისული კარადებით, ხის ვერტიკალური ფიცრული ნიშითა და კრემისფერი ხუროსებრი თავსახურით" },
+    { src: bedroomNew2, alt: "საძინებელი კრემისფერი კარადებით მუქი ხის არშიებით, მუქი ხის ნიშითა და მუქი ნაცრისფერი ავეჯით" },
+    { src: bedroomNew3, alt: "საძინებელი კრემისფერი კარადებით, კაკლის ხის ნიშითა და მოყავისფრო ხუროსებრი თავსახურით, მარმარილოს იატაკით" },
     { src: bedroom, alt: "საძინებელი კრემისფერი პრიალა კარადებით, კაკლის ხის აქცენტითა და შავი ავეჯით" },
     { src: bedroom2, alt: "საძინებელი კრემისფერი კარადებით, კაკლის ხის საწოლის თავსახურითა და ჩაშენებული თაროებით" },
   ],
