@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, ArrowUpRight } from "lucide-react";
-import { WorkGallery, type WorkCategory } from "@/components/work-gallery";
+import { WorkGallery, type WorkCategory, type WorkImage } from "@/components/work-gallery";
 import type { CategoryHref } from "@/data/collections-data";
 
 export interface FaqItem {
@@ -33,14 +33,80 @@ export function buildFaqSchema(faqs: FaqItem[]) {
   };
 }
 
+/* ----------------------------------------------------------------
+   კატეგორია-სპეციფიკური guide სექციისთვის (მაგ. სამზარეულოს მასალის
+   ბარათები) — გამოიყენება customGuideBody-ში.
+------------------------------------------------------------------- */
+export interface MaterialCardData {
+  title: string;
+  description: string;
+  swatchClassName: string;
+  badge?: string;
+}
+
+export function MaterialCards({ items }: { items: MaterialCardData[] }) {
+  return (
+    <div className="mt-6 flex flex-col gap-3">
+      {items.map((item) => (
+        <div
+          key={item.title}
+          className="flex items-start gap-3 rounded-2xl border border-border bg-secondary/40 p-4"
+        >
+          <div className={`mt-0.5 h-11 w-11 flex-shrink-0 rounded-xl ${item.swatchClassName}`} />
+          <div>
+            <h4 className="text-sm font-medium mb-1">{item.title}</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+            {item.badge && (
+              <span className="mt-1.5 inline-block text-xs font-semibold text-accent">{item.badge}</span>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export interface ColorSwatchData {
+  label: string;
+  swatchClassName: string;
+}
+
+export function ColorSwatches({ items }: { items: ColorSwatchData[] }) {
+  return (
+    <div className="mt-6 flex gap-3">
+      {items.map((item) => (
+        <div key={item.label} className="flex-1 text-center">
+          <div className={`mb-1.5 h-12 rounded-xl border border-border ${item.swatchClassName}`} />
+          <p className="text-xs text-muted-foreground leading-snug">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function PullQuote({ children }: { children: ReactNode }) {
+  return (
+    <blockquote className="mt-6 rounded-r-xl border-l-2 border-accent bg-secondary/30 py-3 px-4 text-sm italic leading-relaxed text-foreground/80">
+      {children}
+    </blockquote>
+  );
+}
+
+function getBreakImage(images: WorkImage[], breakIndex: number): WorkImage | null {
+  if (images.length === 0) return null;
+  return images[(4 + breakIndex) % images.length];
+}
+
 interface CategoryPageProps {
   breadcrumbLabel: string;
   h1: string;
   subtitle: string;
   heroImg: string;
   heroAlt: string;
+  categoryNoun: string;
   guideHeading: string;
   guideParagraphs: string[];
+  customGuideBody?: ReactNode;
   galleryHeading: string;
   gallery: WorkCategory;
   faqs: FaqItem[];
@@ -53,13 +119,17 @@ export function CategoryPage({
   subtitle,
   heroImg,
   heroAlt,
+  categoryNoun,
   guideHeading,
   guideParagraphs,
+  customGuideBody,
   galleryHeading,
   gallery,
   faqs,
   currentHref,
 }: CategoryPageProps) {
+  const stripImages = gallery.images.slice(0, 4);
+
   return (
     <div>
       {/* HERO */}
@@ -75,7 +145,7 @@ export function CategoryPage({
       </section>
 
       {/* HERO IMAGE */}
-      <section className="container-x mx-auto max-w-7xl pb-16 md:pb-20">
+      <section className="container-x mx-auto max-w-7xl pb-10 md:pb-20">
         <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-muted">
           <img
             src={heroImg}
@@ -88,17 +158,72 @@ export function CategoryPage({
         </div>
       </section>
 
+      {/* PHOTO STRIP — ასპირაციული, არა "დასრულებული პროექტის" პრეტენზია */}
+      {stripImages.length > 0 && (
+        <section className="pb-8 md:hidden">
+          <p className="container-x mx-auto max-w-7xl text-base font-semibold mb-3">
+            წარმოიდგინეთ თქვენი {categoryNoun}
+          </p>
+          <div className="container-x mx-auto max-w-7xl">
+            <div className="flex gap-2.5 overflow-x-auto scrollbar-hide pb-1">
+              {stripImages.map((img, i) => (
+                <img
+                  key={i}
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="h-24 w-24 flex-shrink-0 rounded-xl object-cover"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ადრეული inline CTA */}
+      <section className="container-x mx-auto max-w-7xl pb-12 md:pb-16">
+        <div className="flex items-center justify-between gap-4 rounded-2xl bg-primary p-4 text-primary-foreground md:p-5">
+          <div className="text-sm">
+            <strong className="mb-0.5 block text-sm md:text-base font-semibold">
+              უკვე გადაწყვეტილი გაქვთ?
+            </strong>
+            <span className="text-primary-foreground/70">გამოტოვეთ დანარჩენი — მოგვწერეთ სივრცის შესახებ.</span>
+          </div>
+          <Link
+            to="/start"
+            className="flex-shrink-0 whitespace-nowrap rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition hover:opacity-90"
+          >
+            დაწყება
+          </Link>
+        </div>
+      </section>
+
       {/* GUIDE / DESCRIPTION */}
       <section className="container-x mx-auto max-w-4xl pb-20 md:pb-28">
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">
           პრაქტიკული გზამკვლევი
         </p>
         <h2 className="text-2xl md:text-3xl mb-6">{guideHeading}</h2>
-        <div className="space-y-4 text-muted-foreground leading-relaxed">
-          {guideParagraphs.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+        <div className="text-muted-foreground leading-relaxed">
+          {guideParagraphs.map((p, i) => {
+            const showBreak = i % 2 === 1 && i < guideParagraphs.length - 1;
+            const breakImg = showBreak ? getBreakImage(gallery.images, Math.floor(i / 2)) : null;
+            return (
+              <div key={i} className={i > 0 ? "mt-4" : undefined}>
+                <p>{p}</p>
+                {breakImg && (
+                  <img
+                    src={breakImg.src}
+                    alt={breakImg.alt}
+                    loading="lazy"
+                    className="mt-4 aspect-video w-full rounded-xl object-cover"
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
+        {customGuideBody}
       </section>
 
       {/* GALLERY */}
