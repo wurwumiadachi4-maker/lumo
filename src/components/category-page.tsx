@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, ArrowUpRight } from "lucide-react";
 import { WorkGallery, type WorkCategory, type WorkImage } from "@/components/work-gallery";
@@ -8,6 +8,8 @@ export interface FaqItem {
   q: string;
   a: string;
 }
+
+const heroKenburnsVariants = ["hero-kenburns-1", "hero-kenburns-2", "hero-kenburns-3"];
 
 const allCategoryLinks: { href: CategoryHref; label: string }[] = [
   { href: "/collections/kitchens", label: "სამზარეულოები" },
@@ -68,15 +70,22 @@ export function MaterialCards({ items }: { items: MaterialCardData[] }) {
 
 export interface ColorSwatchData {
   label: string;
-  swatchClassName: string;
+  photo: { src: string; alt: string };
 }
 
 export function ColorSwatches({ items }: { items: ColorSwatchData[] }) {
   return (
-    <div className="mt-6 flex gap-3">
+    <div className="mt-6 flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1">
       {items.map((item) => (
-        <div key={item.label} className="flex-1 text-center">
-          <div className={`mb-1.5 h-12 rounded-xl border border-border ${item.swatchClassName}`} />
+        <div key={item.label} className="flex-shrink-0 snap-start w-[72%] sm:w-[38%] md:w-[28%] text-center">
+          <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-muted mb-2">
+            <img
+              src={item.photo.src}
+              alt={item.photo.alt}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
           <p className="text-xs text-muted-foreground leading-snug">{item.label}</p>
         </div>
       ))}
@@ -130,6 +139,20 @@ export function CategoryPage({
 }: CategoryPageProps) {
   const stripImages = gallery.images.slice(0, 4);
 
+  // თუ გალერეაში საკმარისი ფოტოა (2+), hero-ც ცვალებადი იქნება ისევე,
+  // როგორც მთავარ გვერდზე — წინააღმდეგ შემთხვევაში ერთი სტატიკური heroImg რჩება.
+  const heroRotationImages = gallery.images.length >= 2 ? gallery.images.slice(0, 3) : null;
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    if (!heroRotationImages) return;
+    const count = heroRotationImages.length;
+    const id = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % count);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [gallery]);
+
   return (
     <div>
       {/* HERO */}
@@ -146,15 +169,29 @@ export function CategoryPage({
 
       {/* HERO IMAGE */}
       <section className="container-x mx-auto max-w-7xl pb-10 md:pb-20">
-        <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-muted">
-          <img
-            src={heroImg}
-            alt={heroAlt}
-            loading="eager"
-            width={1600}
-            height={900}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+        <div className="relative aspect-[4/3] md:aspect-[21/9] rounded-2xl overflow-hidden bg-muted">
+          {heroRotationImages ? (
+            heroRotationImages.map((img, i) => (
+              <img
+                key={img.src}
+                src={img.src}
+                alt={i === 0 ? heroAlt : img.alt}
+                width={1600}
+                height={900}
+                className={`${heroKenburnsVariants[i % heroKenburnsVariants.length]} absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out`}
+                style={{ opacity: i === heroIndex ? 1 : 0 }}
+              />
+            ))
+          ) : (
+            <img
+              src={heroImg}
+              alt={heroAlt}
+              loading="eager"
+              width={1600}
+              height={900}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
         </div>
       </section>
 
@@ -206,8 +243,8 @@ export function CategoryPage({
         <h2 className="text-2xl md:text-3xl mb-6">{guideHeading}</h2>
         <div className="text-muted-foreground leading-relaxed">
           {guideParagraphs.map((p, i) => {
-            const showBreak = i % 2 === 1 && i < guideParagraphs.length - 1;
-            const breakImg = showBreak ? getBreakImage(gallery.images, Math.floor(i / 2)) : null;
+            const showBreak = i < guideParagraphs.length - 1;
+            const breakImg = showBreak ? getBreakImage(gallery.images, i) : null;
             return (
               <div key={i} className={i > 0 ? "mt-4" : undefined}>
                 <p>{p}</p>
@@ -216,7 +253,7 @@ export function CategoryPage({
                     src={breakImg.src}
                     alt={breakImg.alt}
                     loading="lazy"
-                    className="mt-4 aspect-video w-full rounded-xl object-cover"
+                    className="mt-4 aspect-[4/3] w-full rounded-xl object-cover"
                   />
                 )}
               </div>
